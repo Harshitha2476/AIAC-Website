@@ -1,0 +1,235 @@
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Student Intake — AIAC Research Centre</title>
+  <!-- Tailwind CSS CDN -->
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script>
+    tailwind.config = {
+      darkMode: 'class',
+      theme: {
+        extend: {
+          colors: {
+            brand: {
+              50: '#eff6ff',
+              500: '#3b82f6',
+              600: '#2563eb',
+              700: '#1d4ed8',
+            }
+          }
+        }
+      }
+    };
+  </script>
+  <!-- Google Fonts: Geist & Geist Mono -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Geist:wght@300;400;500;600;700&family=Geist+Mono:wght@400;500&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="assets/css/site.css">
+  <script src="assets/js/theme.js"></script>
+</head>
+<body class="bg-[#fafafb] text-[#4b5563] dark:bg-[#08090c] dark:text-[#9ca3af] antialiased selection:bg-zinc-900 selection:text-white dark:selection:bg-white dark:selection:text-black min-h-screen flex flex-col justify-between">
+
+  <!-- Background Grids & Ambient Lighting -->
+  <div class="fixed inset-0 bg-grid-pattern pointer-events-none -z-20"></div>
+  <div class="fixed inset-0 glow-radial pointer-events-none -z-10"></div>
+
+
+  <!-- 1. Institutional Metadata Top Strip -->
+  <div class="institutional-strip border-b border-[#e2e8f0]/40 dark:border-[#1e293b]/60 py-1.5 px-6">
+    <div class="max-w-6xl mx-auto flex flex-col sm:flex-row items-center justify-between gap-1 text-center sm:text-left">
+      <div>AIAC RESEARCH LAB · CSE DIVISION 2 · H1 2026–27</div>
+      <div class="flex items-center gap-2 text-[#64748b] dark:text-[#94a3b8]">
+        <span class="w-1.5 h-1.5 rounded-full bg-emerald-500 animate-pulse"></span>
+        <span>TRUNK SPRINT ACTIVE · CYCLE 2026.1</span>
+      </div>
+    </div>
+  </div>
+  <!-- Global Navigation Header -->
+  <header class="border-b border-[#e5e7eb] dark:border-[#1e2027] sticky top-0 bg-[#fafafb]/90 dark:bg-[#08090c]/90 backdrop-blur-xl z-50 transition-colors">
+    <div class="max-w-6xl mx-auto px-6 h-16 flex items-center justify-between">
+      <!-- Lab Brand Logo -->
+      <a href="index.html" class="flex items-center gap-3 group focus:outline-none focus-visible:ring-2 focus-visible:ring-blue-500 rounded p-1">
+        <div class="w-5 h-5 bg-[#090a0f] dark:bg-white rounded-sm flex items-center justify-center text-white dark:text-black font-bold text-xs tracking-tighter">
+          ▲
+        </div>
+        <span class="text-sm font-semibold tracking-tight text-[#090a0f] dark:text-white group-hover:text-blue-600 dark:group-hover:text-blue-400 transition">
+          AIAC <span class="text-[#9ca3af] dark:text-[#555b68] font-normal font-mono text-xs">/ LAB</span>
+        </span>
+      </a>
+
+      <!-- Desktop Navigation Links -->
+      <nav class="hidden md:flex items-center space-x-6 text-xs font-medium text-[#6b7280] dark:text-[#808695]">
+        <a href="index.html" class="hover:text-[#090a0f] dark:hover:text-white transition py-1">Overview</a>
+        <a href="research.html" class="hover:text-[#090a0f] dark:hover:text-white transition py-1">Research</a>
+        <a href="pods.html" class="hover:text-[#090a0f] dark:hover:text-white transition py-1">Pods</a>
+        <a href="projects.html" class="hover:text-[#090a0f] dark:hover:text-white transition py-1">Projects</a>
+        <a href="outputs.html" class="hover:text-[#090a0f] dark:hover:text-white transition py-1">Outputs</a>
+        <a href="people.html" class="hover:text-[#090a0f] dark:hover:text-white transition py-1">People</a>
+        <a href="reproducibility.html" class="hover:text-[#090a0f] dark:hover:text-white transition py-1">Reproducibility</a>
+        <a href="updates.html" class="hover:text-[#090a0f] dark:hover:text-white transition py-1">Updates</a>
+      </nav>
+
+      <!-- Action Items & Theme Toggle -->
+      <div class="flex items-center gap-3">
+        <!-- Quick Search Palette Trigger -->
+        <button id="nav-search-trigger" class="hidden sm:inline-flex items-center gap-2 px-2.5 py-1.5 rounded-md border border-[#e5e7eb] dark:border-[#1e2027] bg-white dark:bg-[#111216] text-[#6b7280] dark:text-[#808695] hover:text-[#090a0f] dark:hover:text-white hover:border-[#d1d5db] dark:hover:border-[#2c303c] text-xs font-mono transition focus:outline-none focus:ring-2 focus:ring-blue-500 shadow-sm" aria-label="Search lab index">
+          <svg class="w-3.5 h-3.5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z"/>
+          </svg>
+          <span class="text-[11px] text-[#9ca3af] dark:text-[#555b68]">Search</span>
+          <kbd class="text-[10px] bg-[#f3f4f6] dark:bg-[#1e2027] text-[#4b5563] dark:text-[#9ca3af] px-1.5 py-0.5 rounded border border-[#e5e7eb] dark:border-[#2c303c]">⌘K</kbd>
+        </button>
+
+        <!-- Theme Toggle Button -->
+        <button id="theme-toggle" data-theme-toggle class="inline-flex items-center gap-1.5 px-2.5 py-1.5 rounded-md border border-[#e5e7eb] dark:border-[#1e2027] bg-white dark:bg-[#111216] text-[#4b5563] dark:text-[#9ca3af] hover:text-[#090a0f] dark:hover:text-white hover:border-[#d1d5db] dark:hover:border-[#2c303c] text-xs font-mono transition focus:outline-none focus:ring-2 focus:ring-blue-500 shadow-sm" aria-label="Toggle theme">
+          <svg class="theme-icon-dark w-3.5 h-3.5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M20.354 15.354A9 9 0 018.646 3.646 9.003 9.003 0 0012 21a9.003 9.003 0 008.354-5.646z"/>
+          </svg>
+          <svg class="theme-icon-light hidden w-3.5 h-3.5 text-amber-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 3v1m0 16v1m9-9h-1M4 9h1m15.364 6.364l-.707-.707M6.343 6.343l-.707-.707m12.728 0l-.707.707M6.343 17.657l-.707.707M16 12a4 4 0 11-8 0 4 4 0 018 0z"/>
+          </svg>
+          <span class="theme-label hidden sm:inline text-[11px]">Theme</span>
+        </button>
+
+        <!-- Active Admissions Badge -->
+        <span class="text-xs font-mono text-emerald-700 dark:text-emerald-400 bg-emerald-50 dark:bg-emerald-950/40 border border-emerald-200 dark:border-emerald-900/60 px-3 py-1.5 rounded-md hidden sm:inline-block">
+          Applications Open
+        </span>
+
+        <!-- Mobile Menu Trigger Button -->
+        <button id="mobile-menu-button" type="button" class="md:hidden p-2 rounded-md border border-[#e5e7eb] dark:border-[#1e2027] text-[#4b5563] dark:text-[#9ca3af] hover:text-[#090a0f] dark:hover:text-white focus:outline-none focus:ring-2 focus:ring-blue-500" aria-label="Open navigation menu" aria-expanded="false">
+          <svg id="menu-open-icon" class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"/>
+          </svg>
+          <svg id="menu-close-icon" class="w-4 h-4 hidden" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"/>
+          </svg>
+        </button>
+      </div>
+    </div>
+
+    <!-- Mobile Navigation Drawer -->
+    <div id="mobile-menu" class="hidden md:hidden border-b border-[#e5e7eb] dark:border-[#1e2027] bg-[#ffffff] dark:bg-[#0c0d12] px-6 py-4 space-y-3">
+      <nav class="flex flex-col space-y-3 text-xs font-medium text-[#4b5563] dark:text-[#9ca3af]">
+        <a href="index.html" class="hover:text-blue-600 dark:hover:text-white transition py-1">Overview</a>
+        <a href="research.html" class="hover:text-blue-600 dark:hover:text-white transition py-1">Research</a>
+        <a href="pods.html" class="hover:text-blue-600 dark:hover:text-white transition py-1">Pods</a>
+        <a href="projects.html" class="hover:text-blue-600 dark:hover:text-white transition py-1">Projects</a>
+        <a href="outputs.html" class="hover:text-blue-600 dark:hover:text-white transition py-1">Outputs</a>
+        <a href="people.html" class="hover:text-blue-600 dark:hover:text-white transition py-1">People</a>
+        <a href="reproducibility.html" class="hover:text-blue-600 dark:hover:text-white transition py-1">Reproducibility</a>
+        <a href="updates.html" class="hover:text-blue-600 dark:hover:text-white transition py-1">Updates</a>
+      </nav>
+      <div class="pt-3 border-t border-[#e5e7eb] dark:border-[#1e2027] flex items-center justify-between">
+        <span class="text-xs font-mono text-emerald-600 dark:text-emerald-400">Applications Open</span>
+      </div>
+    </div>
+  </header>
+
+  <!-- Main Content Area -->
+  <main class="max-w-6xl mx-auto px-6 py-16 sm:py-20 flex-grow w-full">
+    <div class="mb-14">
+      <div class="text-[11px] font-mono text-[#6b7280] dark:text-[#808695] uppercase tracking-widest mb-3 flex items-center gap-2">
+        <span class="w-1.5 h-1.5 rounded-full bg-emerald-500 animate-pulse"></span>
+        ADMISSIONS // 2026 COHORT
+      </div>
+      <h1 class="text-3xl sm:text-5xl font-medium tracking-tight text-[#090a0f] dark:text-white mb-5">
+        Student Intake & Evaluation
+      </h1>
+      <p class="text-base sm:text-lg text-[#4b5563] dark:text-[#9ca3af] max-w-2xl leading-relaxed">
+        Admission is open to early-semester undergraduate engineering students. Induction into active squads is determined entirely by the 48-hour builder evaluation.
+      </p>
+    </div>
+
+    <div class="grid grid-cols-1 lg:grid-cols-3 gap-12">
+      <!-- Left Info -->
+      <div class="space-y-8">
+        <div>
+          <h3 class="text-xs font-medium text-[#090a0f] dark:text-white mb-3 font-mono uppercase tracking-wider border-b border-[#e5e7eb] dark:border-[#1e2027] pb-2">
+            Prerequisites
+          </h3>
+          <ul class="text-xs space-y-2.5 text-[#4b5563] dark:text-[#9ca3af]">
+            <li class="flex items-start gap-2">
+              <span class="text-blue-600 dark:text-blue-400 font-bold">•</span>
+              <span>Foundational Python / C proficiency</span>
+            </li>
+            <li class="flex items-start gap-2">
+              <span class="text-blue-600 dark:text-blue-400 font-bold">•</span>
+              <span>Basic Git & command-line comfort</span>
+            </li>
+            <li class="flex items-start gap-2">
+              <span class="text-blue-600 dark:text-blue-400 font-bold">•</span>
+              <span>8–10 dedicated hours per week commitment</span>
+            </li>
+            <li class="flex items-start gap-2">
+              <span class="text-blue-600 dark:text-blue-400 font-bold">•</span>
+              <span>Interest in one of the 6 active Research Pods</span>
+            </li>
+          </ul>
+        </div>
+        <div>
+          <h3 class="text-xs font-medium text-[#090a0f] dark:text-white mb-3 font-mono uppercase tracking-wider border-b border-[#e5e7eb] dark:border-[#1e2027] pb-2">
+            Selection Flow
+          </h3>
+          <ol class="text-xs space-y-2.5 text-[#4b5563] dark:text-[#9ca3af] font-mono">
+            <li>1. Submit intake form & GitHub profile</li>
+            <li>2. Complete 48-hour screening task</li>
+            <li>3. 10-minute technical review call</li>
+            <li>4. Induction into 3-week bootcamp</li>
+            <li>5. Placement into Research Pod squad</li>
+          </ol>
+        </div>
+      </div>
+
+      <!-- Right Action Card -->
+      <div class="lg:col-span-2 p-8 sm:p-12 rounded-xl bg-white dark:bg-[#111216] border border-[#e5e7eb] dark:border-[#1e2027] shadow-sm flex flex-col justify-between">
+        <div>
+          <span class="text-xs font-mono uppercase tracking-wider text-blue-600 dark:text-blue-400 bg-blue-50 dark:bg-blue-950/40 border border-blue-200 dark:border-blue-900/50 px-2.5 py-1 rounded inline-block mb-4">
+            APPLICATION PORTAL
+          </span>
+          <h2 class="text-2xl font-medium text-[#090a0f] dark:text-white mb-4">Ready to Submit Your Application?</h2>
+          <p class="text-sm text-[#4b5563] dark:text-[#9ca3af] leading-relaxed mb-8 max-w-xl">
+            Ensure you have an active GitHub account, have reviewed the <a href="pods.html" class="text-blue-600 dark:text-blue-400 underline hover:no-underline">Research Pods</a> and research tracks, and are prepared for the 48-hour builder evaluation.
+          </p>
+        </div>
+        <div>
+          <a href="https://forms.google.com" target="_blank" rel="noopener noreferrer" class="inline-flex items-center gap-2 px-7 py-3 rounded-md bg-[#090a0f] text-white dark:bg-white dark:text-black font-semibold text-xs font-mono hover:opacity-90 transition shadow-sm">
+            <span>OPEN APPLICATION FORM</span>
+            <span>↗</span>
+          </a>
+          <p class="mt-4 text-[11px] font-mono text-[#6b7280] dark:text-[#808695]">
+            Submissions are reviewed on a rolling basis by faculty directors and squad leads.
+          </p>
+        </div>
+      </div>
+    </div>
+  </main>
+
+  <!-- Minimalist Academic Footer -->
+  <footer class="border-t border-[#e5e7eb] dark:border-[#1e2027] py-12 text-xs text-[#6b7280] dark:text-[#808695] font-mono">
+    <div class="max-w-6xl mx-auto px-6 flex flex-col md:flex-row justify-between items-start md:items-center gap-6">
+      <div>
+        <div class="text-[#090a0f] dark:text-white font-medium">AIAC LAB <span class="font-normal text-[#9ca3af] dark:text-[#555b68]">/ Admissions Portal</span></div>
+        <div class="text-[#9ca3af] dark:text-[#555b68] mt-1">Department of Computer Science & Engineering</div>
+      </div>
+      <div class="flex flex-wrap items-center gap-6 text-[#6b7280] dark:text-[#808695]">
+        <a href="index.html" class="hover:text-[#090a0f] dark:hover:text-white transition">Overview</a>
+        <a href="research.html" class="hover:text-[#090a0f] dark:hover:text-white transition">Research</a>
+        <a href="pods.html" class="hover:text-[#090a0f] dark:hover:text-white transition">Pods</a>
+        <a href="projects.html" class="hover:text-[#090a0f] dark:hover:text-white transition">Projects</a>
+        <a href="outputs.html" class="hover:text-[#090a0f] dark:hover:text-white transition">Outputs</a>
+        <a href="people.html" class="hover:text-[#090a0f] dark:hover:text-white transition">People</a>
+        <a href="reproducibility.html" class="hover:text-[#090a0f] dark:hover:text-white transition">Reproducibility</a>
+        <a href="updates.html" class="hover:text-[#090a0f] dark:hover:text-white transition">Updates</a>
+      </div>
+    </div>
+  </footer>
+
+  <!-- Scripts -->
+  <script src="assets/js/navbar.js"></script>
+  <script src="assets/js/interactions.js"></script>
+</body>
+</html>

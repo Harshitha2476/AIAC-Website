@@ -1,0 +1,591 @@
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Research Themes — AIAC Research Centre</title>
+  <!-- Tailwind CSS CDN -->
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script>
+    tailwind.config = {
+      darkMode: 'class',
+      theme: {
+        extend: {
+          colors: {
+            brand: {
+              50: '#eff6ff',
+              500: '#3b82f6',
+              600: '#2563eb',
+              700: '#1d4ed8',
+            }
+          }
+        }
+      }
+    };
+  </script>
+  <!-- Google Fonts: Geist & Geist Mono -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Geist:wght@300;400;500;600;700&family=Geist+Mono:wght@400;500&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="assets/css/site.css">
+  <script src="assets/js/theme.js"></script>
+</head>
+<body class="bg-[#fafafb] text-[#4b5563] dark:bg-[#08090c] dark:text-[#9ca3af] antialiased selection:bg-zinc-900 selection:text-white dark:selection:bg-white dark:selection:text-black min-h-screen flex flex-col justify-between">
+
+  <!-- Background Grids & Ambient Lighting -->
+  <div class="fixed inset-0 bg-grid-pattern pointer-events-none -z-20"></div>
+  <div class="fixed inset-0 glow-radial pointer-events-none -z-10"></div>
+
+
+  <!-- 1. Institutional Metadata Top Strip -->
+  <div class="institutional-strip border-b border-[#e2e8f0]/40 dark:border-[#1e293b]/60 py-1.5 px-6">
+    <div class="max-w-6xl mx-auto flex flex-col sm:flex-row items-center justify-between gap-1 text-center sm:text-left">
+      <div>AIAC RESEARCH LAB · CSE DIVISION 2 · H1 2026–27</div>
+      <div class="flex items-center gap-2 text-[#64748b] dark:text-[#94a3b8]">
+        <span class="w-1.5 h-1.5 rounded-full bg-emerald-500 animate-pulse"></span>
+        <span>TRUNK SPRINT ACTIVE · CYCLE 2026.1</span>
+      </div>
+    </div>
+  </div>
+  <!-- Global Navigation Header -->
+  <header class="border-b border-[#e5e7eb] dark:border-[#1e2027] sticky top-0 bg-[#fafafb]/90 dark:bg-[#08090c]/90 backdrop-blur-xl z-50 transition-colors">
+    <div class="max-w-6xl mx-auto px-6 h-16 flex items-center justify-between">
+      <!-- Lab Brand Logo -->
+      <a href="index.html" class="flex items-center gap-3 group focus:outline-none focus-visible:ring-2 focus-visible:ring-blue-500 rounded p-1">
+        <div class="w-5 h-5 bg-[#090a0f] dark:bg-white rounded-sm flex items-center justify-center text-white dark:text-black font-bold text-xs tracking-tighter">
+          ▲
+        </div>
+        <span class="text-sm font-semibold tracking-tight text-[#090a0f] dark:text-white group-hover:text-blue-600 dark:group-hover:text-blue-400 transition">
+          AIAC <span class="text-[#9ca3af] dark:text-[#555b68] font-normal font-mono text-xs">/ LAB</span>
+        </span>
+      </a>
+
+      <!-- Desktop Navigation Links -->
+      <nav class="hidden md:flex items-center space-x-6 text-xs font-medium text-[#6b7280] dark:text-[#808695]">
+        <a href="index.html" class="hover:text-[#090a0f] dark:hover:text-white transition py-1">Overview</a>
+        <a href="research.html" class="text-blue-600 dark:text-blue-400 font-semibold py-1 border-b-2 border-blue-600 dark:border-blue-400">Research</a>
+        <a href="pods.html" class="hover:text-[#090a0f] dark:hover:text-white transition py-1">Pods</a>
+        <a href="projects.html" class="hover:text-[#090a0f] dark:hover:text-white transition py-1">Projects</a>
+        <a href="outputs.html" class="hover:text-[#090a0f] dark:hover:text-white transition py-1">Outputs</a>
+        <a href="people.html" class="hover:text-[#090a0f] dark:hover:text-white transition py-1">People</a>
+        <a href="reproducibility.html" class="hover:text-[#090a0f] dark:hover:text-white transition py-1">Reproducibility</a>
+        <a href="updates.html" class="hover:text-[#090a0f] dark:hover:text-white transition py-1">Updates</a>
+      </nav>
+
+      <!-- Action Items & Theme Toggle -->
+      <div class="flex items-center gap-2.5">
+        <!-- Quick Search (Cmd+K) Trigger -->
+        <button data-search-trigger class="inline-flex items-center gap-2 px-2.5 py-1.5 rounded-md border border-[#e5e7eb] dark:border-[#1e2027] bg-white dark:bg-[#111216] text-[#4b5563] dark:text-[#9ca3af] hover:text-[#090a0f] dark:hover:text-white hover:border-[#d1d5db] dark:hover:border-[#2c303c] text-xs font-mono transition focus:outline-none focus:ring-2 focus:ring-blue-500 shadow-sm" title="Quick Search (Ctrl+K / Cmd+K)">
+          <svg class="w-3.5 h-3.5 text-blue-500" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z"/>
+          </svg>
+          <span class="hidden sm:inline text-[11px]">Search</span>
+          <kbd class="hidden md:inline-block text-[9px] bg-[#f1f5f9] dark:bg-[#1e293b] px-1 py-0.5 rounded text-[#64748b] dark:text-[#94a3b8] border border-[#e2e8f0] dark:border-[#334155]">⌘K</kbd>
+        </button>
+
+        <!-- Theme Toggle Button -->
+        <button id="theme-toggle" data-theme-toggle class="inline-flex items-center gap-1.5 px-2.5 py-1.5 rounded-md border border-[#e5e7eb] dark:border-[#1e2027] bg-white dark:bg-[#111216] text-[#4b5563] dark:text-[#9ca3af] hover:text-[#090a0f] dark:hover:text-white hover:border-[#d1d5db] dark:hover:border-[#2c303c] text-xs font-mono transition focus:outline-none focus:ring-2 focus:ring-blue-500 shadow-sm" aria-label="Toggle theme">
+          <svg class="theme-icon-dark w-3.5 h-3.5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M20.354 15.354A9 9 0 018.646 3.646 9.003 9.003 0 0012 21a9.003 9.003 0 008.354-5.646z"/>
+          </svg>
+          <svg class="theme-icon-light hidden w-3.5 h-3.5 text-amber-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 3v1m0 16v1m9-9h-1M4 9h1m15.364 6.364l-.707-.707M6.343 6.343l-.707-.707m12.728 0l-.707.707M6.343 17.657l-.707.707M16 12a4 4 0 11-8 0 4 4 0 018 0z"/>
+          </svg>
+          <span class="theme-label hidden sm:inline text-[11px]">Theme</span>
+        </button>
+
+        <!-- Intake CTA Link -->
+        <a href="intake.html" class="hidden sm:inline-flex items-center gap-1.5 text-xs font-mono font-medium text-white bg-[#090a0f] hover:bg-[#1f2937] dark:bg-[#111216] dark:hover:bg-[#17181f] border border-[#090a0f] dark:border-[#262626] px-3.5 py-1.5 rounded-md transition shadow-sm hover:shadow-md">
+          <span>Cohort 2026</span>
+          <span class="text-[#9ca3af]">→</span>
+        </a>
+
+        <!-- Mobile Menu Trigger Button -->
+        <button id="mobile-menu-button" type="button" class="md:hidden p-2 rounded-md border border-[#e5e7eb] dark:border-[#1e2027] text-[#4b5563] dark:text-[#9ca3af] hover:text-[#090a0f] dark:hover:text-white focus:outline-none focus:ring-2 focus:ring-blue-500" aria-label="Open navigation menu" aria-expanded="false">
+          <svg id="menu-open-icon" class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"/>
+          </svg>
+          <svg id="menu-close-icon" class="w-4 h-4 hidden" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"/>
+          </svg>
+        </button>
+      </div>
+    </div>
+
+    <!-- Mobile Navigation Drawer -->
+    <div id="mobile-menu" class="hidden md:hidden border-b border-[#e5e7eb] dark:border-[#1e2027] bg-[#ffffff] dark:bg-[#0c0d12] px-6 py-4 space-y-3">
+      <nav class="flex flex-col space-y-3 text-xs font-medium text-[#4b5563] dark:text-[#9ca3af]">
+        <a href="index.html" class="hover:text-blue-600 dark:hover:text-white transition py-1">Overview</a>
+        <a href="research.html" class="text-blue-600 dark:text-blue-400 font-semibold py-1">Research</a>
+        <a href="pods.html" class="hover:text-blue-600 dark:hover:text-white transition py-1">Pods</a>
+        <a href="projects.html" class="hover:text-blue-600 dark:hover:text-white transition py-1">Projects</a>
+        <a href="outputs.html" class="hover:text-blue-600 dark:hover:text-white transition py-1">Outputs</a>
+        <a href="people.html" class="hover:text-blue-600 dark:hover:text-white transition py-1">People</a>
+        <a href="reproducibility.html" class="hover:text-blue-600 dark:hover:text-white transition py-1">Reproducibility</a>
+        <a href="updates.html" class="hover:text-blue-600 dark:hover:text-white transition py-1">Updates</a>
+      </nav>
+      <div class="pt-3 border-t border-[#e5e7eb] dark:border-[#1e2027] flex items-center justify-between">
+        <a href="intake.html" class="inline-flex items-center gap-1.5 text-xs font-mono font-medium text-white bg-[#090a0f] dark:bg-[#17181f] border border-transparent dark:border-[#2c303c] px-3.5 py-1.5 rounded-md">
+          <span>Cohort 2026</span>
+          <span>→</span>
+        </a>
+      </div>
+    </div>
+  </header>
+
+  <!-- Main Content Area -->
+  <main class="max-w-6xl mx-auto px-6 py-16 sm:py-20 flex-grow w-full">
+
+    <!-- Header Section -->
+    <div class="mb-12">
+      <div class="text-[11px] font-mono text-blue-600 dark:text-blue-400 uppercase tracking-widest mb-3 flex items-center gap-2">
+        <span class="w-1.5 h-1.5 rounded-full bg-blue-600 dark:bg-blue-400"></span>
+        INSTITUTIONAL THEMES // 2026 CADRE
+      </div>
+      <h1 class="text-3xl sm:text-5xl font-medium tracking-tight text-[#090a0f] dark:text-white mb-4 leading-tight">
+        Research Themes
+      </h1>
+      <p class="text-base sm:text-lg text-[#4b5563] dark:text-[#9ca3af] max-w-3xl leading-relaxed">
+        The AIAC Research Centre focuses on six specialized applied intelligence domains. Each theme bridges theoretical formulation with systems-level execution, deterministic validation, and reproducible releases.
+      </p>
+
+      <!-- Mini Telemetry Strip -->
+      <div class="mt-8 grid grid-cols-2 md:grid-cols-4 gap-4 p-5 rounded-xl bg-white dark:bg-[#0c1222] border border-[#e2e8f0] dark:border-[#1e293b] font-mono text-xs shadow-sm">
+        <div>
+          <span class="text-[10px] text-[#64748b] uppercase block">THEMES</span>
+          <span class="text-xl font-bold text-[#091124] dark:text-white stat-counter" data-counter-target="6">6</span>
+          <span class="text-[11px] text-[#64748b] block">Core Disciplines</span>
+        </div>
+        <div>
+          <span class="text-[10px] text-[#64748b] uppercase block">ACTIVE PIPELINES</span>
+          <span class="text-xl font-bold text-blue-600 dark:text-blue-400 stat-counter" data-counter-target="12">12</span>
+          <span class="text-[11px] text-[#64748b] block">Open Codebases</span>
+        </div>
+        <div>
+          <span class="text-[10px] text-[#64748b] uppercase block">RESEARCH CADRE</span>
+          <span class="text-xl font-bold text-[#091124] dark:text-white stat-counter" data-counter-target="30">30</span>
+          <span class="text-[11px] text-[#64748b] block">Student Scholars</span>
+        </div>
+        <div>
+          <span class="text-[10px] text-[#64748b] uppercase block">EDGE LATENCY BOUND</span>
+          <span class="text-xl font-bold text-emerald-600 dark:text-emerald-400">&lt; 25ms</span>
+          <span class="text-[11px] text-[#64748b] block">Jetson Validated</span>
+        </div>
+      </div>
+
+      <!-- Interactive Theme Filter Buttons -->
+      <div class="mt-8 flex flex-wrap items-center gap-2 text-xs font-mono filter-container">
+        <button data-filter-btn="all" data-filter-group="theme" class="px-3.5 py-1.5 rounded-md bg-blue-600 text-white font-medium transition shadow-sm">
+          All Themes (6)
+        </button>
+        <button data-filter-btn="theme-01" data-filter-group="theme" class="px-3 py-1.5 rounded-md bg-white dark:bg-[#0f172a] border border-[#e2e8f0] dark:border-[#1e293b] text-[#475569] dark:text-[#94a3b8] hover:border-blue-400 transition">
+          Theme 01: Indic NLP
+        </button>
+        <button data-filter-btn="theme-02" data-filter-group="theme" class="px-3 py-1.5 rounded-md bg-white dark:bg-[#0f172a] border border-[#e2e8f0] dark:border-[#1e293b] text-[#475569] dark:text-[#94a3b8] hover:border-blue-400 transition">
+          Theme 02: Edge Vision
+        </button>
+        <button data-filter-btn="theme-03" data-filter-group="theme" class="px-3 py-1.5 rounded-md bg-white dark:bg-[#0f172a] border border-[#e2e8f0] dark:border-[#1e293b] text-[#475569] dark:text-[#94a3b8] hover:border-blue-400 transition">
+          Theme 03: Agents
+        </button>
+        <button data-filter-btn="theme-04" data-filter-group="theme" class="px-3 py-1.5 rounded-md bg-white dark:bg-[#0f172a] border border-[#e2e8f0] dark:border-[#1e293b] text-[#475569] dark:text-[#94a3b8] hover:border-blue-400 transition">
+          Theme 04: Bio-Signals
+        </button>
+        <button data-filter-btn="theme-05" data-filter-group="theme" class="px-3 py-1.5 rounded-md bg-white dark:bg-[#0f172a] border border-[#e2e8f0] dark:border-[#1e293b] text-[#475569] dark:text-[#94a3b8] hover:border-blue-400 transition">
+          Theme 05: Model Ethics
+        </button>
+        <button data-filter-btn="theme-06" data-filter-group="theme" class="px-3 py-1.5 rounded-md bg-white dark:bg-[#0f172a] border border-[#e2e8f0] dark:border-[#1e293b] text-[#475569] dark:text-[#94a3b8] hover:border-blue-400 transition">
+          Theme 06: MLOps
+        </button>
+      </div>
+    </div>
+
+    <!-- 6 Detailed Research Themes -->
+    <div class="space-y-8">
+
+      <!-- THEME 1 -->
+      <article data-theme="theme-01" class="p-8 sm:p-10 rounded-xl bg-white dark:bg-[#0f172a] border border-[#e2e8f0] dark:border-[#1e293b] spotlight-card pod-editorial-card shadow-sm">
+        <div class="flex flex-col sm:flex-row sm:items-center justify-between mb-4 gap-2">
+          <span class="text-xs font-mono text-blue-600 dark:text-blue-400 font-semibold tracking-wider uppercase">
+            THEME 01 // INDIC NLP
+          </span>
+          <a href="pod.html?id=pod-01" class="text-xs font-mono text-blue-600 dark:text-blue-400 hover:underline flex items-center gap-1">
+            <span>Explore Pod 01 Dashboard</span>
+            <span>→</span>
+          </a>
+        </div>
+
+        <h2 class="text-2xl font-medium text-[#090a0f] dark:text-white mb-3">
+          Regional NLP & Indic LLMs
+        </h2>
+
+        <div class="mb-6">
+          <div class="text-xs font-mono uppercase text-[#9ca3af] dark:text-[#555b68] mb-1">Research Objective</div>
+          <p class="text-sm text-[#4b5563] dark:text-[#9ca3af] leading-relaxed">
+            Constructing compute-efficient subword tokenization, morphological segmentation, and calibrated cross-lingual pseudo-labeling pipelines for low-resource Indic languages, with a specialized focus on regional Kannada administrative and dialect corpora.
+          </p>
+        </div>
+
+        <div class="grid grid-cols-1 md:grid-cols-2 gap-6 mb-6">
+          <div>
+            <div class="text-xs font-mono uppercase text-[#9ca3af] dark:text-[#555b68] mb-2">Key Technical Directions</div>
+            <ul class="text-xs text-[#4b5563] dark:text-[#9ca3af] space-y-2 leading-relaxed">
+              <li>• Byte-pair encoding (BPE) vs SentencePiece subword boundary analysis on Indic unicode scripts</li>
+              <li>• Parameter-efficient fine-tuning (LoRA / QLoRA) on open Kannada instruction datasets</li>
+              <li>• Temperature-calibrated teacher-student knowledge distillation for low-resource sentiment transfer</li>
+              <li>• Multilingual evaluation against standard IndicGLUE benchmarks</li>
+            </ul>
+          </div>
+          <div>
+            <div class="text-xs font-mono uppercase text-[#9ca3af] dark:text-[#555b68] mb-2">Active & Proposed Projects</div>
+            <ul class="text-xs text-[#4b5563] dark:text-[#9ca3af] space-y-2">
+              <li class="flex items-center justify-between">
+                <span>Kannada Morphological Segmentation Baseline</span>
+                <span class="text-[10px] font-mono px-1.5 py-0.5 rounded bg-blue-50 dark:bg-blue-950/40 text-blue-600 dark:text-blue-400 border border-blue-200">Active</span>
+              </li>
+              <li class="flex items-center justify-between">
+                <span>Cross-Lingual Pseudo-Labeling with Calibrated Confidence</span>
+                <span class="text-[10px] font-mono px-1.5 py-0.5 rounded bg-amber-50 dark:bg-amber-950/40 text-amber-600 dark:text-amber-400 border border-amber-200">Validating</span>
+              </li>
+            </ul>
+          </div>
+        </div>
+
+        <div class="pt-4 border-t border-[#f3f4f6] dark:border-[#181a22] flex flex-wrap items-center justify-between gap-3 text-xs font-mono">
+          <div class="flex flex-wrap items-center gap-1.5">
+            <span class="text-[#9ca3af] dark:text-[#555b68] mr-1">Core Stack:</span>
+            <span class="px-2 py-0.5 rounded bg-[#f3f4f6] dark:bg-[#17181f] border border-[#e5e7eb] dark:border-[#222222]">PyTorch</span>
+            <span class="px-2 py-0.5 rounded bg-[#f3f4f6] dark:bg-[#17181f] border border-[#e5e7eb] dark:border-[#222222]">Hugging Face</span>
+            <span class="px-2 py-0.5 rounded bg-[#f3f4f6] dark:bg-[#17181f] border border-[#e5e7eb] dark:border-[#222222]">IndicBERT</span>
+            <span class="px-2 py-0.5 rounded bg-[#f3f4f6] dark:bg-[#17181f] border border-[#e5e7eb] dark:border-[#222222]">IndicNLP</span>
+          </div>
+          <a href="projects.html" class="text-blue-600 dark:text-blue-400 hover:underline">View Projects in Pipeline →</a>
+        </div>
+      </article>
+
+      <!-- THEME 2 -->
+      <article data-theme="theme-02" class="p-8 sm:p-10 rounded-xl bg-white dark:bg-[#0f172a] border border-[#e2e8f0] dark:border-[#1e293b] spotlight-card pod-editorial-card shadow-sm">
+        <div class="flex flex-col sm:flex-row sm:items-center justify-between mb-4 gap-2">
+          <span class="text-xs font-mono text-blue-600 dark:text-blue-400 font-semibold tracking-wider uppercase">
+            THEME 02 // EDGE & VISION
+          </span>
+          <a href="pod.html?id=pod-02" class="text-xs font-mono text-blue-600 dark:text-blue-400 hover:underline flex items-center gap-1">
+            <span>Explore Pod 02 Dashboard</span>
+            <span>→</span>
+          </a>
+        </div>
+
+        <h2 class="text-2xl font-medium text-[#090a0f] dark:text-white mb-3">
+          Edge AI & Vision Systems
+        </h2>
+
+        <div class="mb-6">
+          <div class="text-xs font-mono uppercase text-[#9ca3af] dark:text-[#555b68] mb-1">Research Objective</div>
+          <p class="text-sm text-[#4b5563] dark:text-[#9ca3af] leading-relaxed">
+            Investigating ultra-low latency computer vision inference under strict thermal, compute, and memory limits on embedded edge hardware, enabling continuous real-time video telemetry stream perception.
+          </p>
+        </div>
+
+        <div class="grid grid-cols-1 md:grid-cols-2 gap-6 mb-6">
+          <div>
+            <div class="text-xs font-mono uppercase text-[#9ca3af] dark:text-[#555b68] mb-2">Key Technical Directions</div>
+            <ul class="text-xs text-[#4b5563] dark:text-[#9ca3af] space-y-2 leading-relaxed">
+              <li>• Post-training quantization schemes (INT8/FP16) with calibration dataset optimization</li>
+              <li>• TensorRT graph compilation and CUDA kernel fusion for embedded NVIDIA Jetson platforms</li>
+              <li>• Zero-copy memory ring buffers for high-framerate IP video stream ingestion</li>
+              <li>• Edge benchmark profiling tracking frame throughput, latency jitter, and thermal throttle</li>
+            </ul>
+          </div>
+          <div>
+            <div class="text-xs font-mono uppercase text-[#9ca3af] dark:text-[#555b68] mb-2">Active & Proposed Projects</div>
+            <ul class="text-xs text-[#4b5563] dark:text-[#9ca3af] space-y-2">
+              <li class="flex items-center justify-between">
+                <span>INT8 Quantized Object Detection on Jetson</span>
+                <span class="text-[10px] font-mono px-1.5 py-0.5 rounded bg-blue-50 dark:bg-blue-950/40 text-blue-600 dark:text-blue-400 border border-blue-200">Active</span>
+              </li>
+              <li class="flex items-center justify-between">
+                <span>Multi-Camera Video Stream Anomaly Pipeline</span>
+                <span class="text-[10px] font-mono px-1.5 py-0.5 rounded bg-zinc-100 dark:bg-zinc-800 text-zinc-600 dark:text-zinc-400 border border-zinc-200">Proposed</span>
+              </li>
+            </ul>
+          </div>
+        </div>
+
+        <div class="pt-4 border-t border-[#f3f4f6] dark:border-[#181a22] flex flex-wrap items-center justify-between gap-3 text-xs font-mono">
+          <div class="flex flex-wrap items-center gap-1.5">
+            <span class="text-[#9ca3af] dark:text-[#555b68] mr-1">Core Stack:</span>
+            <span class="px-2 py-0.5 rounded bg-[#f3f4f6] dark:bg-[#17181f] border border-[#e5e7eb] dark:border-[#222222]">TensorRT</span>
+            <span class="px-2 py-0.5 rounded bg-[#f3f4f6] dark:bg-[#17181f] border border-[#e5e7eb] dark:border-[#222222]">CUDA</span>
+            <span class="px-2 py-0.5 rounded bg-[#f3f4f6] dark:bg-[#17181f] border border-[#e5e7eb] dark:border-[#222222]">YOLOv8</span>
+            <span class="px-2 py-0.5 rounded bg-[#f3f4f6] dark:bg-[#17181f] border border-[#e5e7eb] dark:border-[#222222]">DeepStream</span>
+          </div>
+          <a href="projects.html" class="text-blue-600 dark:text-blue-400 hover:underline">View Projects in Pipeline →</a>
+        </div>
+      </article>
+
+      <!-- THEME 3 -->
+      <article data-theme="theme-03" class="p-8 sm:p-10 rounded-xl bg-white dark:bg-[#0f172a] border border-[#e2e8f0] dark:border-[#1e293b] spotlight-card pod-editorial-card shadow-sm">
+        <div class="flex flex-col sm:flex-row sm:items-center justify-between mb-4 gap-2">
+          <span class="text-xs font-mono text-blue-600 dark:text-blue-400 font-semibold tracking-wider uppercase">
+            THEME 03 // AGENTIC SYSTEMS
+          </span>
+          <a href="pod.html?id=pod-03" class="text-xs font-mono text-blue-600 dark:text-blue-400 hover:underline flex items-center gap-1">
+            <span>Explore Pod 03 Dashboard</span>
+            <span>→</span>
+          </a>
+        </div>
+
+        <h2 class="text-2xl font-medium text-[#090a0f] dark:text-white mb-3">
+          Agentic AI & Autonomous Loops
+        </h2>
+
+        <div class="mb-6">
+          <div class="text-xs font-mono uppercase text-[#9ca3af] dark:text-[#555b68] mb-1">Research Objective</div>
+          <p class="text-sm text-[#4b5563] dark:text-[#9ca3af] leading-relaxed">
+            Formulating deterministic multi-agent orchestration architectures, bounded tool execution graphs, self-correcting validation loops, and grounded retrieval-augmented generation across complex structured workflows.
+          </p>
+        </div>
+
+        <div class="grid grid-cols-1 md:grid-cols-2 gap-6 mb-6">
+          <div>
+            <div class="text-xs font-mono uppercase text-[#9ca3af] dark:text-[#555b68] mb-2">Key Technical Directions</div>
+            <ul class="text-xs text-[#4b5563] dark:text-[#9ca3af] space-y-2 leading-relaxed">
+              <li>• Deterministic state machine verification with LangGraph preventing recursive failure states</li>
+              <li>• Multi-agent consensus voting algorithms for automated codebase auditing and unit test synthesis</li>
+              <li>• Strict Pydantic and JSONSchema output enforcement for zero-crash downstream API ingestion</li>
+              <li>• Sentence-level attribution graphs for hallucination reduction in grounded RAG pipelines</li>
+            </ul>
+          </div>
+          <div>
+            <div class="text-xs font-mono uppercase text-[#9ca3af] dark:text-[#555b68] mb-2">Active & Proposed Projects</div>
+            <ul class="text-xs text-[#4b5563] dark:text-[#9ca3af] space-y-2">
+              <li class="flex items-center justify-between">
+                <span>Multi-Agent Consensus for PR Triage</span>
+                <span class="text-[10px] font-mono px-1.5 py-0.5 rounded bg-blue-50 dark:bg-blue-950/40 text-blue-600 dark:text-blue-400 border border-blue-200">Active</span>
+              </li>
+              <li class="flex items-center justify-between">
+                <span>Grounded RAG with Semantic Source Verification</span>
+                <span class="text-[10px] font-mono px-1.5 py-0.5 rounded bg-amber-50 dark:bg-amber-950/40 text-amber-600 dark:text-amber-400 border border-amber-200">Validating</span>
+              </li>
+            </ul>
+          </div>
+        </div>
+
+        <div class="pt-4 border-t border-[#f3f4f6] dark:border-[#181a22] flex flex-wrap items-center justify-between gap-3 text-xs font-mono">
+          <div class="flex flex-wrap items-center gap-1.5">
+            <span class="text-[#9ca3af] dark:text-[#555b68] mr-1">Core Stack:</span>
+            <span class="px-2 py-0.5 rounded bg-[#f3f4f6] dark:bg-[#17181f] border border-[#e5e7eb] dark:border-[#222222]">LangGraph</span>
+            <span class="px-2 py-0.5 rounded bg-[#f3f4f6] dark:bg-[#17181f] border border-[#e5e7eb] dark:border-[#222222]">FastAPI</span>
+            <span class="px-2 py-0.5 rounded bg-[#f3f4f6] dark:bg-[#17181f] border border-[#e5e7eb] dark:border-[#222222]">LlamaIndex</span>
+            <span class="px-2 py-0.5 rounded bg-[#f3f4f6] dark:bg-[#17181f] border border-[#e5e7eb] dark:border-[#222222]">ChromaDB</span>
+          </div>
+          <a href="projects.html" class="text-blue-600 dark:text-blue-400 hover:underline">View Projects in Pipeline →</a>
+        </div>
+      </article>
+
+      <!-- THEME 4 -->
+      <article data-theme="theme-04" class="p-8 sm:p-10 rounded-xl bg-white dark:bg-[#0f172a] border border-[#e2e8f0] dark:border-[#1e293b] spotlight-card pod-editorial-card shadow-sm">
+        <div class="flex flex-col sm:flex-row sm:items-center justify-between mb-4 gap-2">
+          <span class="text-xs font-mono text-blue-600 dark:text-blue-400 font-semibold tracking-wider uppercase">
+            THEME 04 // HEALTHCARE & BIO-SIGNALS
+          </span>
+          <a href="pod.html?id=pod-04" class="text-xs font-mono text-blue-600 dark:text-blue-400 hover:underline flex items-center gap-1">
+            <span>Explore Pod 04 Dashboard</span>
+            <span>→</span>
+          </a>
+        </div>
+
+        <h2 class="text-2xl font-medium text-[#090a0f] dark:text-white mb-3">
+          Healthcare & Bio-Signals
+        </h2>
+
+        <div class="mb-6">
+          <div class="text-xs font-mono uppercase text-[#9ca3af] dark:text-[#555b68] mb-1">Research Objective</div>
+          <p class="text-sm text-[#4b5563] dark:text-[#9ca3af] leading-relaxed">
+            Developing noise-resilient deep learning architectures for physiological time-series interpretation, focusing on single-lead electrocardiogram (ECG) beat anomaly identification and electroencephalogram (EEG) spectral telemetry.
+          </p>
+        </div>
+
+        <div class="grid grid-cols-1 md:grid-cols-2 gap-6 mb-6">
+          <div>
+            <div class="text-xs font-mono uppercase text-[#9ca3af] dark:text-[#555b68] mb-2">Key Technical Directions</div>
+            <ul class="text-xs text-[#4b5563] dark:text-[#9ca3af] space-y-2 leading-relaxed">
+              <li>• Lightweight 1D dilated convolutional networks for real-time cardiac beat classification</li>
+              <li>• Wavelet-based baseline wander and muscle artifact removal in noisy non-clinical recordings</li>
+              <li>• Validation on PhysioNet MIT-BIH Arrhythmia benchmark databases</li>
+              <li>• Patient data anonymization and privacy-preserving clinical time-series representation</li>
+            </ul>
+          </div>
+          <div>
+            <div class="text-xs font-mono uppercase text-[#9ca3af] dark:text-[#555b68] mb-2">Active & Proposed Projects</div>
+            <ul class="text-xs text-[#4b5563] dark:text-[#9ca3af] space-y-2">
+              <li class="flex items-center justify-between">
+                <span>1D-CNN Single-Lead ECG Anomaly Detection</span>
+                <span class="text-[10px] font-mono px-1.5 py-0.5 rounded bg-blue-50 dark:bg-blue-950/40 text-blue-600 dark:text-blue-400 border border-blue-200">Active</span>
+              </li>
+              <li class="flex items-center justify-between">
+                <span>Artifact Removal & Spectral Power in Mobile EEG</span>
+                <span class="text-[10px] font-mono px-1.5 py-0.5 rounded bg-zinc-100 dark:bg-zinc-800 text-zinc-600 dark:text-zinc-400 border border-zinc-200">Proposed</span>
+              </li>
+            </ul>
+          </div>
+        </div>
+
+        <div class="pt-4 border-t border-[#f3f4f6] dark:border-[#181a22] flex flex-wrap items-center justify-between gap-3 text-xs font-mono">
+          <div class="flex flex-wrap items-center gap-1.5">
+            <span class="text-[#9ca3af] dark:text-[#555b68] mr-1">Core Stack:</span>
+            <span class="px-2 py-0.5 rounded bg-[#f3f4f6] dark:bg-[#17181f] border border-[#e5e7eb] dark:border-[#222222]">PyTorch</span>
+            <span class="px-2 py-0.5 rounded bg-[#f3f4f6] dark:bg-[#17181f] border border-[#e5e7eb] dark:border-[#222222]">WFDB</span>
+            <span class="px-2 py-0.5 rounded bg-[#f3f4f6] dark:bg-[#17181f] border border-[#e5e7eb] dark:border-[#222222]">NeuroKit2</span>
+            <span class="px-2 py-0.5 rounded bg-[#f3f4f6] dark:bg-[#17181f] border border-[#e5e7eb] dark:border-[#222222]">MNE-Python</span>
+          </div>
+          <a href="projects.html" class="text-blue-600 dark:text-blue-400 hover:underline">View Projects in Pipeline →</a>
+        </div>
+      </article>
+
+      <!-- THEME 5 -->
+      <article data-theme="theme-05" class="p-8 sm:p-10 rounded-xl bg-white dark:bg-[#0f172a] border border-[#e2e8f0] dark:border-[#1e293b] spotlight-card pod-editorial-card shadow-sm">
+        <div class="flex flex-col sm:flex-row sm:items-center justify-between mb-4 gap-2">
+          <span class="text-xs font-mono text-blue-600 dark:text-blue-400 font-semibold tracking-wider uppercase">
+            THEME 05 // SECURITY & ETHICS
+          </span>
+          <a href="pod.html?id=pod-05" class="text-xs font-mono text-blue-600 dark:text-blue-400 hover:underline flex items-center gap-1">
+            <span>Explore Pod 05 Dashboard</span>
+            <span>→</span>
+          </a>
+        </div>
+
+        <h2 class="text-2xl font-medium text-[#090a0f] dark:text-white mb-3">
+          Secure AI & Model Ethics
+        </h2>
+
+        <div class="mb-6">
+          <div class="text-xs font-mono uppercase text-[#9ca3af] dark:text-[#555b68] mb-1">Research Objective</div>
+          <p class="text-sm text-[#4b5563] dark:text-[#9ca3af] leading-relaxed">
+            Assessing vulnerability surfaces in local model deployments against adversarial prompt injection, jailbreaking vectors, explainability bounds, and algorithmic fairness disparity metrics.
+          </p>
+        </div>
+
+        <div class="grid grid-cols-1 md:grid-cols-2 gap-6 mb-6">
+          <div>
+            <div class="text-xs font-mono uppercase text-[#9ca3af] dark:text-[#555b68] mb-2">Key Technical Directions</div>
+            <ul class="text-xs text-[#4b5563] dark:text-[#9ca3af] space-y-2 leading-relaxed">
+              <li>• Automated red-teaming harnesses mapped directly against MITRE ATLAS and OWASP LLM Top 10</li>
+              <li>• Jailbreak attack evaluations across 7B–14B parameter open weights with guardrail probes</li>
+              <li>• Disparate impact and demographic parity auditing using IBM AI Fairness 360 & Fairlearn</li>
+              <li>• SHAP/LIME explainability fidelity under adversarial input perturbations</li>
+            </ul>
+          </div>
+          <div>
+            <div class="text-xs font-mono uppercase text-[#9ca3af] dark:text-[#555b68] mb-2">Active & Proposed Projects</div>
+            <ul class="text-xs text-[#4b5563] dark:text-[#9ca3af] space-y-2">
+              <li class="flex items-center justify-between">
+                <span>Automated Jailbreak Evaluation for Small LLMs</span>
+                <span class="text-[10px] font-mono px-1.5 py-0.5 rounded bg-blue-50 dark:bg-blue-950/40 text-blue-600 dark:text-blue-400 border border-blue-200">Active</span>
+              </li>
+              <li class="flex items-center justify-between">
+                <span>Parity Audit of Student Merit Screening Baselines</span>
+                <span class="text-[10px] font-mono px-1.5 py-0.5 rounded bg-zinc-100 dark:bg-zinc-800 text-zinc-600 dark:text-zinc-400 border border-zinc-200">Proposed</span>
+              </li>
+            </ul>
+          </div>
+        </div>
+
+        <div class="pt-4 border-t border-[#f3f4f6] dark:border-[#181a22] flex flex-wrap items-center justify-between gap-3 text-xs font-mono">
+          <div class="flex flex-wrap items-center gap-1.5">
+            <span class="text-[#9ca3af] dark:text-[#555b68] mr-1">Core Stack:</span>
+            <span class="px-2 py-0.5 rounded bg-[#f3f4f6] dark:bg-[#17181f] border border-[#e5e7eb] dark:border-[#222222]">Garak</span>
+            <span class="px-2 py-0.5 rounded bg-[#f3f4f6] dark:bg-[#17181f] border border-[#e5e7eb] dark:border-[#222222]">AIF360</span>
+            <span class="px-2 py-0.5 rounded bg-[#f3f4f6] dark:bg-[#17181f] border border-[#e5e7eb] dark:border-[#222222]">Fairlearn</span>
+            <span class="px-2 py-0.5 rounded bg-[#f3f4f6] dark:bg-[#17181f] border border-[#e5e7eb] dark:border-[#222222]">SHAP</span>
+          </div>
+          <a href="projects.html" class="text-blue-600 dark:text-blue-400 hover:underline">View Projects in Pipeline →</a>
+        </div>
+      </article>
+
+      <!-- THEME 6 -->
+      <article data-theme="theme-06" class="p-8 sm:p-10 rounded-xl bg-white dark:bg-[#0f172a] border border-[#e2e8f0] dark:border-[#1e293b] spotlight-card pod-editorial-card shadow-sm">
+        <div class="flex flex-col sm:flex-row sm:items-center justify-between mb-4 gap-2">
+          <span class="text-xs font-mono text-blue-600 dark:text-blue-400 font-semibold tracking-wider uppercase">
+            THEME 06 // SYSTEMS & MLOPS
+          </span>
+          <a href="pod.html?id=pod-06" class="text-xs font-mono text-blue-600 dark:text-blue-400 hover:underline flex items-center gap-1">
+            <span>Explore Pod 06 Dashboard</span>
+            <span>→</span>
+          </a>
+        </div>
+
+        <h2 class="text-2xl font-medium text-[#090a0f] dark:text-white mb-3">
+          Systems, HPC & MLOps
+        </h2>
+
+        <div class="mb-6">
+          <div class="text-xs font-mono uppercase text-[#9ca3af] dark:text-[#555b68] mb-1">Research Objective</div>
+          <p class="text-sm text-[#4b5563] dark:text-[#9ca3af] leading-relaxed">
+            Constructing resilient laboratory infrastructure, heterogeneous GPU orchestration testbeds, automated regression test harnesses, and continuous ML experiment lineage registries.
+          </p>
+        </div>
+
+        <div class="grid grid-cols-1 md:grid-cols-2 gap-6 mb-6">
+          <div>
+            <div class="text-xs font-mono uppercase text-[#9ca3af] dark:text-[#555b68] mb-2">Key Technical Directions</div>
+            <ul class="text-xs text-[#4b5563] dark:text-[#9ca3af] space-y-2 leading-relaxed">
+              <li>• Multi-stage Docker containers with deterministic CUDA driver matching and lockfiles</li>
+              <li>• Automated CI telemetry capturing peak VRAM allocation and tokens/second per PR</li>
+              <li>• Centralized MLflow model registry tracking SHA256 hashes and training hyperparameters</li>
+              <li>• Heterogeneous compute offloading protocols between low-power edge nodes and GPU servers</li>
+            </ul>
+          </div>
+          <div>
+            <div class="text-xs font-mono uppercase text-[#9ca3af] dark:text-[#555b68] mb-2">Active & Proposed Projects</div>
+            <ul class="text-xs text-[#4b5563] dark:text-[#9ca3af] space-y-2">
+              <li class="flex items-center justify-between">
+                <span>Experiment Lineage & GPU Telemetry Testbed</span>
+                <span class="text-[10px] font-mono px-1.5 py-0.5 rounded bg-blue-50 dark:bg-blue-950/40 text-blue-600 dark:text-blue-400 border border-blue-200">Active</span>
+              </li>
+              <li class="flex items-center justify-between">
+                <span>Edge-to-Server Model Offloading Benchmarks</span>
+                <span class="text-[10px] font-mono px-1.5 py-0.5 rounded bg-zinc-100 dark:bg-zinc-800 text-zinc-600 dark:text-zinc-400 border border-zinc-200">Proposed</span>
+              </li>
+            </ul>
+          </div>
+        </div>
+
+        <div class="pt-4 border-t border-[#f3f4f6] dark:border-[#181a22] flex flex-wrap items-center justify-between gap-3 text-xs font-mono">
+          <div class="flex flex-wrap items-center gap-1.5">
+            <span class="text-[#9ca3af] dark:text-[#555b68] mr-1">Core Stack:</span>
+            <span class="px-2 py-0.5 rounded bg-[#f3f4f6] dark:bg-[#17181f] border border-[#e5e7eb] dark:border-[#222222]">Docker</span>
+            <span class="px-2 py-0.5 rounded bg-[#f3f4f6] dark:bg-[#17181f] border border-[#e5e7eb] dark:border-[#222222]">MLflow</span>
+            <span class="px-2 py-0.5 rounded bg-[#f3f4f6] dark:bg-[#17181f] border border-[#e5e7eb] dark:border-[#222222]">Prometheus</span>
+            <span class="px-2 py-0.5 rounded bg-[#f3f4f6] dark:bg-[#17181f] border border-[#e5e7eb] dark:border-[#222222]">GitHub Actions</span>
+          </div>
+          <a href="projects.html" class="text-blue-600 dark:text-blue-400 hover:underline">View Projects in Pipeline →</a>
+        </div>
+      </article>
+
+    </div>
+
+  </main>
+
+  <!-- Minimalist Academic Footer -->
+  <footer class="border-t border-[#e5e7eb] dark:border-[#1e2027] py-12 text-xs text-[#6b7280] dark:text-[#808695] font-mono">
+    <div class="max-w-6xl mx-auto px-6 flex flex-col md:flex-row justify-between items-start md:items-center gap-6">
+      <div>
+        <div class="text-[#090a0f] dark:text-white font-medium">AIAC LAB <span class="font-normal text-[#9ca3af] dark:text-[#555b68]">/ Research Themes</span></div>
+        <div class="text-[#9ca3af] dark:text-[#555b68] mt-1">Department of Computer Science & Engineering</div>
+      </div>
+      <div class="flex flex-wrap items-center gap-6 text-[#6b7280] dark:text-[#808695]">
+        <a href="index.html" class="hover:text-[#090a0f] dark:hover:text-white transition">Overview</a>
+        <a href="research.html" class="text-[#090a0f] dark:text-white font-semibold transition">Research</a>
+        <a href="pods.html" class="hover:text-[#090a0f] dark:hover:text-white transition">Pods</a>
+        <a href="projects.html" class="hover:text-[#090a0f] dark:hover:text-white transition">Projects</a>
+        <a href="outputs.html" class="hover:text-[#090a0f] dark:hover:text-white transition">Outputs</a>
+        <a href="reproducibility.html" class="hover:text-[#090a0f] dark:hover:text-white transition">Reproducibility</a>
+      </div>
+    </div>
+  </footer>
+
+  <!-- Scripts -->
+  <script src="assets/js/navbar.js"></script>
+  <script src="assets/js/interactions.js"></script>
+</body>
+</html>

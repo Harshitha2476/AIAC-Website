@@ -1,0 +1,886 @@
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>AIAC — Advanced Intelligence & Applied Computing Research Centre</title>
+  <!-- Tailwind CSS CDN -->
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script>
+    tailwind.config = {
+      darkMode: 'class',
+      theme: {
+        extend: {
+          colors: {
+            brand: {
+              50: '#eff6ff',
+              500: '#3b82f6',
+              600: '#2563eb',
+              700: '#1d4ed8',
+            }
+          }
+        }
+      }
+    };
+  </script>
+  <!-- Google Fonts: Geist & Geist Mono -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Geist:wght@300;400;500;600;700&family=Geist+Mono:wght@400;500;600&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="assets/css/site.css">
+  <script src="assets/js/theme.js"></script>
+</head>
+<body class="bg-[#f8fafc] text-[#334155] dark:bg-[#070b14] dark:text-[#94a3b8] antialiased selection:bg-zinc-900 selection:text-white dark:selection:bg-white dark:selection:text-black">
+
+  <!-- Background Grids & Ambient Lighting -->
+  <div class="fixed inset-0 bg-grid-pattern pointer-events-none -z-20"></div>
+  <div class="fixed inset-0 glow-radial pointer-events-none -z-10"></div>
+
+  <!-- 1. Institutional Metadata Top Strip -->
+  <div class="institutional-strip border-b border-[#e2e8f0]/40 dark:border-[#1e293b]/60 py-1.5 px-6">
+    <div class="max-w-6xl mx-auto flex flex-col sm:flex-row items-center justify-between gap-1 text-center sm:text-left">
+      <div>AIAC RESEARCH LAB · CSE DIVISION 2 · H1 2026–27</div>
+      <div class="flex items-center gap-2 text-[#64748b] dark:text-[#94a3b8]">
+        <span class="w-1.5 h-1.5 rounded-full bg-emerald-500 animate-pulse"></span>
+        <span>TRUNK SPRINT ACTIVE · CYCLE 2026.1</span>
+      </div>
+    </div>
+  </div>
+
+  <!-- Global Navigation Header -->
+  <header class="border-b border-[#e2e8f0] dark:border-[#1e293b] sticky top-0 bg-[#f8fafc]/90 dark:bg-[#070b14]/90 backdrop-blur-xl z-50 transition-colors">
+    <div class="max-w-6xl mx-auto px-6 h-16 flex items-center justify-between">
+      <!-- Lab Brand Logo -->
+      <a href="index.html" class="flex items-center gap-3 group focus:outline-none focus-visible:ring-2 focus-visible:ring-blue-500 rounded p-1">
+        <div class="w-5 h-5 bg-[#091124] dark:bg-white rounded-sm flex items-center justify-center text-white dark:text-black font-bold text-xs tracking-tighter">
+          ▲
+        </div>
+        <span class="text-sm font-semibold tracking-tight text-[#091124] dark:text-white group-hover:text-blue-600 dark:group-hover:text-blue-400 transition">
+          AIAC <span class="text-[#64748b] dark:text-[#64748b] font-normal font-mono text-xs">/ LAB</span>
+        </span>
+      </a>
+
+      <!-- Desktop Navigation Links -->
+      <nav class="hidden md:flex items-center space-x-6 text-xs font-medium text-[#64748b] dark:text-[#94a3b8]">
+        <a href="index.html" class="text-blue-600 dark:text-blue-400 font-semibold py-1 border-b-2 border-blue-600 dark:border-blue-400">Overview</a>
+        <a href="research.html" class="hover:text-[#091124] dark:hover:text-white transition py-1">Research</a>
+        <a href="pods.html" class="hover:text-[#091124] dark:hover:text-white transition py-1">Pods</a>
+        <a href="projects.html" class="hover:text-[#091124] dark:hover:text-white transition py-1">Projects</a>
+        <a href="outputs.html" class="hover:text-[#091124] dark:hover:text-white transition py-1">Outputs</a>
+        <a href="people.html" class="hover:text-[#091124] dark:hover:text-white transition py-1">People</a>
+        <a href="reproducibility.html" class="hover:text-[#091124] dark:hover:text-white transition py-1">Reproducibility</a>
+        <a href="updates.html" class="hover:text-[#091124] dark:hover:text-white transition py-1">Updates</a>
+      </nav>
+
+      <!-- Action Items & Theme Toggle -->
+      <div class="flex items-center gap-2.5">
+        <!-- Quick Search (Cmd+K) Trigger -->
+        <button data-search-trigger class="inline-flex items-center gap-2 px-2.5 py-1.5 rounded-md border border-[#e2e8f0] dark:border-[#1e293b] bg-white dark:bg-[#0f172a] text-[#475569] dark:text-[#94a3b8] hover:text-[#091124] dark:hover:text-white hover:border-[#cbd5e1] dark:hover:border-[#334155] text-xs font-mono transition focus:outline-none focus:ring-2 focus:ring-blue-500 shadow-sm" title="Quick Search (Ctrl+K / Cmd+K)">
+          <svg class="w-3.5 h-3.5 text-blue-500" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z"/>
+          </svg>
+          <span class="hidden sm:inline text-[11px]">Search</span>
+          <kbd class="hidden md:inline-block text-[9px] bg-[#f1f5f9] dark:bg-[#1e293b] px-1 py-0.5 rounded text-[#64748b] dark:text-[#94a3b8] border border-[#e2e8f0] dark:border-[#334155]">⌘K</kbd>
+        </button>
+
+        <!-- Theme Toggle Button -->
+        <button id="theme-toggle" data-theme-toggle class="inline-flex items-center gap-1.5 px-2.5 py-1.5 rounded-md border border-[#e2e8f0] dark:border-[#1e293b] bg-white dark:bg-[#0f172a] text-[#475569] dark:text-[#94a3b8] hover:text-[#091124] dark:hover:text-white hover:border-[#cbd5e1] dark:hover:border-[#334155] text-xs font-mono transition focus:outline-none focus:ring-2 focus:ring-blue-500 shadow-sm" aria-label="Toggle theme">
+          <svg class="theme-icon-dark w-3.5 h-3.5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M20.354 15.354A9 9 0 018.646 3.646 9.003 9.003 0 0012 21a9.003 9.003 0 008.354-5.646z"/>
+          </svg>
+          <svg class="theme-icon-light hidden w-3.5 h-3.5 text-amber-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 3v1m0 16v1m9-9h-1M4 9h1m15.364 6.364l-.707-.707M6.343 6.343l-.707-.707m12.728 0l-.707.707M6.343 17.657l-.707.707M16 12a4 4 0 11-8 0 4 4 0 018 0z"/>
+          </svg>
+          <span class="theme-label hidden sm:inline text-[11px]">Theme</span>
+        </button>
+
+        <!-- Intake CTA Link -->
+        <a href="intake.html" class="hidden sm:inline-flex items-center gap-1.5 text-xs font-mono font-medium text-white bg-[#091124] hover:bg-[#1e293b] dark:bg-[#1e293b] dark:hover:bg-[#334155] border border-[#091124] dark:border-[#334155] px-3.5 py-1.5 rounded-md transition shadow-sm hover:shadow-md">
+          <span>Cohort 2026</span>
+          <span class="text-[#94a3b8]">→</span>
+        </a>
+
+        <!-- Mobile Menu Trigger Button -->
+        <button id="mobile-menu-button" type="button" class="md:hidden p-2 rounded-md border border-[#e2e8f0] dark:border-[#1e293b] text-[#475569] dark:text-[#94a3b8] hover:text-[#091124] dark:hover:text-white focus:outline-none focus:ring-2 focus:ring-blue-500" aria-label="Open navigation menu" aria-expanded="false">
+          <svg id="menu-open-icon" class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"/>
+          </svg>
+          <svg id="menu-close-icon" class="w-4 h-4 hidden" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"/>
+          </svg>
+        </button>
+      </div>
+    </div>
+
+    <!-- Mobile Navigation Drawer -->
+    <div id="mobile-menu" class="hidden md:hidden border-b border-[#e2e8f0] dark:border-[#1e293b] bg-[#ffffff] dark:bg-[#0c1220] px-6 py-4 space-y-3">
+      <nav class="flex flex-col space-y-3 text-xs font-medium text-[#475569] dark:text-[#94a3b8]">
+        <a href="index.html" class="text-blue-600 dark:text-blue-400 font-semibold py-1">Overview</a>
+        <a href="research.html" class="hover:text-blue-600 dark:hover:text-white transition py-1">Research</a>
+        <a href="pods.html" class="hover:text-blue-600 dark:hover:text-white transition py-1">Pods</a>
+        <a href="projects.html" class="hover:text-blue-600 dark:hover:text-white transition py-1">Projects</a>
+        <a href="outputs.html" class="hover:text-blue-600 dark:hover:text-white transition py-1">Outputs</a>
+        <a href="people.html" class="hover:text-blue-600 dark:hover:text-white transition py-1">People</a>
+        <a href="reproducibility.html" class="hover:text-blue-600 dark:hover:text-white transition py-1">Reproducibility</a>
+        <a href="updates.html" class="hover:text-blue-600 dark:hover:text-white transition py-1">Updates</a>
+      </nav>
+      <div class="pt-3 border-t border-[#e2e8f0] dark:border-[#1e293b] flex items-center justify-between">
+        <a href="intake.html" class="inline-flex items-center gap-1.5 text-xs font-mono font-medium text-white bg-[#091124] dark:bg-[#1e293b] border border-transparent dark:border-[#334155] px-3.5 py-1.5 rounded-md">
+          <span>Cohort 2026</span>
+          <span>→</span>
+        </a>
+      </div>
+    </div>
+  </header>
+
+  <main class="max-w-6xl mx-auto px-6">
+
+    <!-- 3. EDITORIAL SPLIT-LAYOUT HERO SECTION -->
+    <section class="py-20 sm:py-28 lg:py-32 border-b border-[#e2e8f0] dark:border-[#1e293b]">
+      <div class="grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-8 items-center">
+        <!-- Left Side: Editorial Mission & CTAs -->
+        <div class="lg:col-span-7 space-y-6">
+          <div class="flex items-center gap-2 text-[11px] font-mono text-blue-600 dark:text-blue-400 tracking-wider uppercase">
+            <span class="w-1.5 h-1.5 rounded-full bg-blue-600 dark:bg-blue-400"></span>
+            <span>RESEARCH INITIATIVE // ADVANCED INTELLIGENCE & APPLIED COMPUTING</span>
+          </div>
+
+          <h1 class="text-3xl sm:text-5xl lg:text-6xl font-medium tracking-tight text-[#091124] dark:text-white leading-[1.1]">
+            Engineering autonomous agents and compute-efficient model architectures.
+          </h1>
+
+          <p class="text-base sm:text-lg text-[#475569] dark:text-[#94a3b8] leading-relaxed max-w-2xl font-normal">
+            The Advanced Intelligence & Applied Computing (AIAC) Research Centre unites theoretical machine learning with production-grade distributed execution, low-latency edge inference, bio-signals, and localized language representations.
+          </p>
+
+          <div class="pt-2 flex flex-wrap items-center gap-4 text-xs font-mono">
+            <a href="research.html" class="px-5 py-3 rounded-md bg-[#091124] text-white hover:bg-[#1e293b] dark:bg-white dark:text-black font-semibold dark:hover:bg-[#e2e8f0] transition shadow-sm flex items-center gap-2">
+              <span>Explore Research Themes</span>
+              <span>→</span>
+            </a>
+            <a href="reproducibility.html" class="px-5 py-3 rounded-md bg-white text-[#091124] border border-[#cbd5e1] hover:border-blue-500 dark:bg-[#0f172a] dark:text-white dark:border-[#1e293b] dark:hover:border-[#334155] transition shadow-sm">
+              Code & Reproducibility
+            </a>
+            <a href="intake.html" class="px-4 py-3 text-[#64748b] dark:text-[#94a3b8] hover:text-[#091124] dark:hover:text-white transition">
+              Student Intake 2026 →
+            </a>
+          </div>
+        </div>
+
+        <!-- Right Side: Bespoke Technical Architecture Visual (SVG Diagram) -->
+        <div class="lg:col-span-5">
+          <div class="p-6 rounded-xl bg-white dark:bg-[#0f172a] border border-[#e2e8f0] dark:border-[#1e293b] shadow-sm relative overflow-hidden">
+            <!-- Diagram Header -->
+            <div class="flex items-center justify-between pb-4 border-b border-[#f1f5f9] dark:border-[#1e293b] text-[10px] font-mono text-[#64748b] dark:text-[#64748b]">
+              <span>SYSTEM ARCHITECTURE SCHEMATIC</span>
+              <span class="text-emerald-600 dark:text-emerald-400 font-semibold">● TOPOLOGY ACTIVE</span>
+            </div>
+
+            <!-- SVG Schematic Visual -->
+            <div class="py-4">
+              <svg viewBox="0 0 420 300" class="w-full h-auto text-xs font-mono" fill="none">
+                <!-- Background grid lines -->
+                <line x1="20" y1="50" x2="400" y2="50" stroke="currentColor" stroke-opacity="0.08" stroke-dasharray="4" />
+                <line x1="20" y1="150" x2="400" y2="150" stroke="currentColor" stroke-opacity="0.08" stroke-dasharray="4" />
+                <line x1="20" y1="250" x2="400" y2="250" stroke="currentColor" stroke-opacity="0.08" stroke-dasharray="4" />
+
+                <!-- Pod 01 & 02 Nodes (Ingestion Layer) -->
+                <rect x="25" y="30" width="105" height="42" rx="4" fill="currentColor" fill-opacity="0.04" stroke="#3b82f6" stroke-width="1.2" />
+                <text x="35" y="48" fill="currentColor" font-size="9" font-weight="600">POD 01: INDIC NLP</text>
+                <text x="35" y="62" fill="currentColor" fill-opacity="0.6" font-size="8">BPE Tokenizer</text>
+
+                <rect x="25" y="90" width="105" height="42" rx="4" fill="currentColor" fill-opacity="0.04" stroke="#3b82f6" stroke-width="1.2" />
+                <text x="35" y="108" fill="currentColor" font-size="9" font-weight="600">POD 02: EDGE AI</text>
+                <text x="35" y="122" fill="currentColor" fill-opacity="0.6" font-size="8">INT8 Quantization</text>
+
+                <!-- Core Orchestration Hub (Middle Layer) -->
+                <rect x="160" y="55" width="120" height="60" rx="4" fill="currentColor" fill-opacity="0.06" stroke="#2563eb" stroke-width="1.6" />
+                <text x="172" y="77" fill="currentColor" font-size="9" font-weight="700">POD 03: AGENTS</text>
+                <text x="172" y="92" fill="currentColor" fill-opacity="0.7" font-size="8">LangGraph Loops</text>
+                <text x="172" y="104" fill="#059669" font-size="8" font-weight="600">● Deterministic</text>
+
+                <!-- Pod 04 & 05 Nodes (Inference & Safety) -->
+                <rect x="160" y="145" width="120" height="42" rx="4" fill="currentColor" fill-opacity="0.04" stroke="#3b82f6" stroke-width="1.2" />
+                <text x="172" y="163" fill="currentColor" font-size="9" font-weight="600">POD 04: HEALTHCARE</text>
+                <text x="172" y="177" fill="currentColor" fill-opacity="0.6" font-size="8">1D-CNN ECG Waves</text>
+
+                <rect x="25" y="150" width="105" height="42" rx="4" fill="currentColor" fill-opacity="0.04" stroke="#3b82f6" stroke-width="1.2" />
+                <text x="35" y="168" fill="currentColor" font-size="9" font-weight="600">POD 05: ETHICS</text>
+                <text x="35" y="182" fill="currentColor" fill-opacity="0.6" font-size="8">Adversarial Audits</text>
+
+                <!-- Verification & Registry Gate (Output Layer) -->
+                <rect x="310" y="85" width="95" height="85" rx="4" fill="currentColor" fill-opacity="0.04" stroke="#059669" stroke-width="1.2" />
+                <text x="320" y="107" fill="currentColor" font-size="9" font-weight="600">POD 06: MLOps</text>
+                <text x="320" y="121" fill="currentColor" fill-opacity="0.6" font-size="8">Docker / CI</text>
+                <text x="320" y="135" fill="currentColor" fill-opacity="0.6" font-size="8">VRAM Trace</text>
+                <text x="320" y="153" fill="#059669" font-size="8" font-weight="600">✓ Verified PR</text>
+
+                <!-- Connecting Vectors (Animated flow) -->
+                <path d="M 130 51 L 160 70" stroke="#3b82f6" stroke-width="1.4" class="svg-flow-path" />
+                <path d="M 130 111 L 160 95" stroke="#3b82f6" stroke-width="1.4" class="svg-flow-path" />
+                <path d="M 130 168 L 160 166" stroke="#3b82f6" stroke-width="1.4" class="svg-flow-path" />
+                <path d="M 280 85 L 310 110" stroke="#2563eb" stroke-width="1.5" class="svg-flow-path" />
+                <path d="M 280 166 L 310 145" stroke="#2563eb" stroke-width="1.5" class="svg-flow-path" />
+
+                <!-- Bottom Metrics Readout -->
+                <line x1="20" y1="215" x2="400" y2="215" stroke="currentColor" stroke-opacity="0.1" />
+                <text x="25" y="240" fill="currentColor" fill-opacity="0.6" font-size="8">LATENCY BOUND: &lt; 25ms</text>
+                <text x="160" y="240" fill="currentColor" fill-opacity="0.6" font-size="8">REPRODUCIBILITY SEED: 42</text>
+                <text x="300" y="240" fill="#10b981" font-size="8" font-weight="600">✓ GATE: STRICT SCHEMA</text>
+              </svg>
+            </div>
+
+            <!-- Diagram Footer Metadata -->
+            <div class="pt-3 border-t border-[#f1f5f9] dark:border-[#1e293b] flex items-center justify-between text-[10px] font-mono text-[#64748b] dark:text-[#64748b]">
+              <span class="flex items-center gap-1.5"><span class="w-1.5 h-1.5 rounded-full bg-emerald-500 animate-pulse"></span> SCHEMATIC: AIAC-TOPOLOGY-2026.1</span>
+              <span class="text-blue-500">REAL-TIME FLOW ACTIVE</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- 4. IMPACT BAND (DYNAMIC COUNTER METRICS) -->
+    <section class="py-14 border-b border-[#e2e8f0] dark:border-[#1e293b]">
+      <div class="grid grid-cols-2 md:grid-cols-4 divide-y md:divide-y-0 md:divide-x divide-[#e2e8f0] dark:divide-[#1e293b]">
+        <!-- Stat 1 -->
+        <div class="py-6 md:py-0 px-4 md:px-6 sm:first:pl-0">
+          <div class="text-4xl sm:text-5xl font-light tracking-tight text-[#091124] dark:text-white mb-1.5 font-sans">
+            <span class="stat-counter" data-counter-target="30">30</span>
+          </div>
+          <div class="text-xs font-mono uppercase text-[#091124] dark:text-white font-medium">Student Researchers</div>
+          <p class="text-[11px] text-[#64748b] dark:text-[#64748b] mt-0.5 font-mono">Inducted & Active Squad Cadre</p>
+        </div>
+
+        <!-- Stat 2 -->
+        <div class="py-6 md:py-0 px-4 md:px-6">
+          <div class="text-4xl sm:text-5xl font-light tracking-tight text-[#091124] dark:text-white mb-1.5 font-sans">
+            <span class="stat-counter" data-counter-target="6">6</span>
+          </div>
+          <div class="text-xs font-mono uppercase text-[#091124] dark:text-white font-medium">Research Pods</div>
+          <p class="text-[11px] text-[#64748b] dark:text-[#64748b] mt-0.5 font-mono">Domain-Dedicated Laboratories</p>
+        </div>
+
+        <!-- Stat 3 -->
+        <div class="py-6 md:py-0 px-4 md:px-6">
+          <div class="text-4xl sm:text-5xl font-light tracking-tight text-[#091124] dark:text-white mb-1.5 font-sans">
+            <span class="stat-counter" data-counter-target="4">4</span>
+          </div>
+          <div class="text-xs font-mono uppercase text-[#091124] dark:text-white font-medium">Cross-Pod Councils</div>
+          <p class="text-[11px] text-[#64748b] dark:text-[#64748b] mt-0.5 font-mono">Systems, Rigor, Ethics, Docs</p>
+        </div>
+
+        <!-- Stat 4 -->
+        <div class="py-6 md:py-0 px-4 md:px-6 sm:last:pr-0">
+          <div class="text-4xl sm:text-5xl font-light tracking-tight text-[#091124] dark:text-white mb-1.5 font-sans">
+            <span class="stat-counter" data-counter-target="6">6</span>-Month
+          </div>
+          <div class="text-xs font-mono uppercase text-[#091124] dark:text-white font-medium">Research Cycle</div>
+          <p class="text-[11px] text-[#64748b] dark:text-[#64748b] mt-0.5 font-mono">Sprint 2026.1 Active</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- 5. FEATURED RESEARCH SECTION (ASYMMETRIC EDITORIAL SPOTLIGHT) -->
+    <section class="py-24 border-b border-[#e2e8f0] dark:border-[#1e293b]">
+      <div class="mb-8">
+        <div class="section-label mb-2">
+          <span>FEATURED RESEARCH</span>
+        </div>
+        <h2 class="text-2xl sm:text-3xl font-medium tracking-tight text-[#091124] dark:text-white">
+          Active Technical Investigation
+        </h2>
+      </div>
+
+      <!-- Asymmetric 2-Column Spotlight -->
+      <div class="p-8 sm:p-10 rounded-xl bg-white dark:bg-[#0f172a] border border-[#e2e8f0] dark:border-[#1e293b] shadow-sm">
+        <div class="grid grid-cols-1 lg:grid-cols-12 gap-8 items-start">
+          <!-- Main Left Column -->
+          <div class="lg:col-span-7 space-y-4">
+            <div class="flex items-center gap-3">
+              <span class="text-xs font-mono font-medium text-blue-600 dark:text-blue-400 bg-blue-50 dark:bg-blue-950/40 border border-blue-200 dark:border-blue-900/50 px-2.5 py-1 rounded">
+                POD 02 // EDGE AI & VISION
+              </span>
+              <span class="text-xs font-mono text-[#64748b] dark:text-[#64748b]">CYCLE 2026.1 · IN ACTIVE BENCHMARKING</span>
+            </div>
+
+            <h3 class="text-xl sm:text-2xl font-medium text-[#091124] dark:text-white leading-snug">
+              Low-Latency INT8 Quantized Object Detection on Embedded Hardware
+            </h3>
+
+            <p class="text-sm text-[#475569] dark:text-[#94a3b8] leading-relaxed">
+              Profiling post-training calibration loss, CUDA kernel execution, and frame throughput of quantized YOLOv8n models on resource-constrained embedded NVIDIA Jetson platforms under strict thermal boundaries.
+            </p>
+
+            <!-- Minimal Technology Labels -->
+            <div class="flex flex-wrap gap-2 text-xs font-mono text-[#475569] dark:text-[#94a3b8] pt-2">
+              <span class="px-2.5 py-1 rounded bg-[#f1f5f9] dark:bg-[#1e293b] border border-[#e2e8f0] dark:border-[#334155]">TensorRT</span>
+              <span class="px-2.5 py-1 rounded bg-[#f1f5f9] dark:bg-[#1e293b] border border-[#e2e8f0] dark:border-[#334155]">CUDA</span>
+              <span class="px-2.5 py-1 rounded bg-[#f1f5f9] dark:bg-[#1e293b] border border-[#e2e8f0] dark:border-[#334155]">YOLOv8</span>
+              <span class="px-2.5 py-1 rounded bg-[#f1f5f9] dark:bg-[#1e293b] border border-[#e2e8f0] dark:border-[#334155]">Embedded Jetson</span>
+            </div>
+
+            <div class="pt-4 flex items-center gap-4 text-xs font-mono">
+              <a href="pod.html?id=pod-02" class="text-blue-600 dark:text-blue-400 font-semibold hover:underline flex items-center gap-1">
+                <span>View Pod 02 Detail</span>
+                <span>→</span>
+              </a>
+              <a href="projects.html" class="text-[#64748b] dark:text-[#94a3b8] hover:text-[#091124] dark:hover:text-white transition">
+                Full Project Pipeline
+              </a>
+            </div>
+          </div>
+
+          <!-- Right Column: Benchmark Readout Visualization -->
+          <div class="lg:col-span-5 p-6 rounded-lg bg-[#f8fafc] dark:bg-[#070b14] border border-[#e2e8f0] dark:border-[#1e293b] font-mono text-xs space-y-4">
+            <div class="flex items-center justify-between text-[11px] pb-2 border-b border-[#e2e8f0] dark:border-[#1e293b] text-[#64748b]">
+              <span>BENCHMARK TELEMETRY</span>
+              <span>BATCH = 1</span>
+            </div>
+
+            <div class="space-y-3">
+              <div>
+                <div class="flex justify-between text-[11px] mb-1">
+                  <span>FP16 Baseline Latency</span>
+                  <span class="text-[#091124] dark:text-white">26.3 ms (38 FPS)</span>
+                </div>
+                <div class="w-full h-1.5 rounded-full bg-[#e2e8f0] dark:bg-[#1e293b] overflow-hidden">
+                  <div class="h-full bg-slate-400 dark:bg-slate-500 rounded-full" style="width: 42%;"></div>
+                </div>
+              </div>
+
+              <div>
+                <div class="flex justify-between text-[11px] mb-1">
+                  <span class="text-blue-600 dark:text-blue-400 font-medium">INT8 Quantized Latency</span>
+                  <span class="text-blue-600 dark:text-blue-400 font-bold">11.2 ms (89 FPS)</span>
+                </div>
+                <div class="w-full h-1.5 rounded-full bg-[#e2e8f0] dark:bg-[#1e293b] overflow-hidden">
+                  <div class="h-full bg-blue-600 dark:bg-blue-500 rounded-full" style="width: 89%;"></div>
+                </div>
+              </div>
+
+              <div class="pt-2 border-t border-[#e2e8f0] dark:border-[#1e293b] grid grid-cols-2 gap-3 text-[10px] text-[#64748b] dark:text-[#94a3b8]">
+                <div>
+                  <span class="block text-[#94a3b8]">ACCURACY DELTA</span>
+                  <span class="text-[#091124] dark:text-white font-medium">&lt; 0.8% mAP50</span>
+                </div>
+                <div>
+                  <span class="block text-[#94a3b8]">VRAM ALLOCATION</span>
+                  <span class="text-[#091124] dark:text-white font-medium">142 MB Total</span>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- INTERACTIVE LAB TELEMETRY BENCHMARK SIMULATOR -->
+    <section class="py-24 border-b border-[#e2e8f0] dark:border-[#1e293b]">
+      <div class="flex flex-col md:flex-row md:items-end justify-between mb-8 gap-4">
+        <div>
+          <div class="section-label mb-2">
+            <span class="w-2 h-2 rounded-full bg-emerald-500 animate-ping"></span>
+            <span>LIVE LAB SIMULATOR // REAL-TIME BENCHMARK WORKLOAD</span>
+          </div>
+          <h2 class="text-2xl sm:text-3xl font-medium tracking-tight text-[#091124] dark:text-white">
+            Interactive Model & Agentic Execution Telemetry
+          </h2>
+          <p class="text-xs sm:text-sm text-[#475569] dark:text-[#94a3b8] mt-1 max-w-2xl">
+            Simulate actual edge inference latency, Kannada BPE subword segmentation, deterministic agent voting, and 1D-CNN ECG anomaly streams.
+          </p>
+        </div>
+        <div class="flex items-center gap-2">
+          <button id="terminal-run-btn" class="px-3.5 py-2 rounded-md bg-blue-600 hover:bg-blue-700 text-white font-mono text-xs font-medium transition shadow-sm flex items-center gap-2">
+            <svg class="w-3.5 h-3.5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M14.752 11.168l-3.197-2.132A1 1 0 0010 9.87v4.263a1 1 0 001.555.832l3.197-2.132a1 1 0 000-1.664z"/><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M21 12a9 9 0 11-18 0 9 9 0 0118 0z"/></svg>
+            <span>Re-run Workload</span>
+          </button>
+        </div>
+      </div>
+
+      <!-- Tab Switcher Navigation -->
+      <div class="flex flex-wrap items-center gap-2 mb-4 font-mono text-xs">
+        <button data-terminal-tab="indic-nlp" class="terminal-tab-btn active border px-3 py-1.5 rounded-md">
+          Pod 01: Kannada Tokenizer
+        </button>
+        <button data-terminal-tab="edge-vision" class="terminal-tab-btn border px-3 py-1.5 rounded-md">
+          Pod 02: Jetson YOLO INT8
+        </button>
+        <button data-terminal-tab="agentic-loop" class="terminal-tab-btn border px-3 py-1.5 rounded-md">
+          Pod 03: LangGraph Consensus
+        </button>
+        <button data-terminal-tab="bio-ecg" class="terminal-tab-btn border px-3 py-1.5 rounded-md">
+          Pod 04: 1D-CNN ECG Detection
+        </button>
+      </div>
+
+      <!-- Lab Terminal Container -->
+      <div class="lab-terminal">
+        <!-- Terminal Header -->
+        <div class="lab-terminal-header">
+          <div class="flex items-center gap-2">
+            <span class="terminal-dot bg-[#ef4444]"></span>
+            <span class="terminal-dot bg-[#eab308]"></span>
+            <span class="terminal-dot bg-[#22c55e]"></span>
+            <span class="text-xs text-[#94a3b8] font-mono ml-2 hidden sm:inline">aiac-runtime-cluster · node-01</span>
+          </div>
+          <div class="flex items-center gap-3 text-xs text-[#64748b] font-mono">
+            <span class="text-emerald-400 flex items-center gap-1 text-[11px]">
+              <span class="w-1.5 h-1.5 rounded-full bg-emerald-400 animate-pulse"></span> SEED: 42 ASSERTED
+            </span>
+            <button data-copy-target="terminal-command-text" class="hover:text-white transition p-1" title="Copy CLI Command">
+              <svg class="w-3.5 h-3.5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 16H6a2 2 0 01-2-2V6a2 2 0 012-2h8a2 2 0 012 2v2m-6 12h8a2 2 0 002-2v-8a2 2 0 00-2-2h-8a2 2 0 00-2 2v8a2 2 0 002 2z"/></svg>
+            </button>
+          </div>
+        </div>
+
+        <!-- Terminal Command Strip -->
+        <div class="bg-[#050811] px-5 py-2.5 border-b border-[#1e293b] flex items-center gap-2 text-xs text-sky-400 font-mono overflow-x-auto">
+          <span class="text-pink-400 select-none">aiac@lab-edge:~$</span>
+          <span id="terminal-command-text" class="text-slate-200">python -m aiac.indic_nlp.tokenize --vocab-size 32000 --corpus kannada_wiki</span>
+          <span class="cursor-blink"></span>
+        </div>
+
+        <!-- Terminal Logs Window -->
+        <div id="terminal-log-output" class="p-6 text-xs font-mono space-y-1.5 min-h-[170px] max-h-[260px] overflow-y-auto bg-[#070b14]/90">
+          <!-- Populated dynamically by interactions.js -->
+        </div>
+
+        <!-- Terminal Telemetry Status Bar -->
+        <div class="px-5 py-3 bg-[#0d1322] border-t border-[#1e293b] flex flex-wrap items-center justify-between text-[11px] text-[#64748b] font-mono gap-2">
+          <div class="flex items-center gap-4">
+            <span>DRIVER: CUDA 12.2 / TENSORRT 8.6</span>
+            <span>BUFFER: RING 1024</span>
+          </div>
+          <div class="flex items-center gap-4">
+            <span class="text-slate-400">TELEMETRY: VERIFIED SCHEMA</span>
+            <span class="text-emerald-400">STATUS: DETERMINISTIC ✓</span>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- 6. RESEARCH STORY BLOCKS (ROW-BASED EDITORIAL FORMAT, NO CARDS) -->
+    <section class="py-24 border-b border-[#e2e8f0] dark:border-[#1e293b]">
+      <div class="mb-10">
+        <div class="section-label mb-2">
+          <span>CURRENT PROGRAMME</span>
+        </div>
+        <h2 class="text-2xl sm:text-3xl font-medium tracking-tight text-[#091124] dark:text-white">
+          Active Squad Investigations
+        </h2>
+      </div>
+
+      <div class="border-t border-[#e2e8f0] dark:border-[#1e293b] divide-y divide-[#e2e8f0] dark:divide-[#1e293b]">
+        <!-- Story Row 1 -->
+        <article class="py-6 research-story-row group flex flex-col md:flex-row md:items-center justify-between gap-4">
+          <div class="space-y-1.5 max-w-3xl">
+            <div class="flex items-center gap-3 text-xs font-mono">
+              <span class="text-blue-600 dark:text-blue-400 font-medium">POD 03 // AGENTIC SYSTEMS</span>
+              <span class="text-[#cbd5e1] dark:text-[#334155]">•</span>
+              <span class="text-[#64748b] dark:text-[#64748b]">Active Sprints · Cycle 2026.1</span>
+            </div>
+            <h3 class="text-base font-medium text-[#091124] dark:text-white group-hover:text-blue-600 dark:group-hover:text-blue-400 transition">
+              <a href="pod.html?id=pod-03">
+                Deterministic Multi-Agent Consensus for Automated Code Review Triage
+              </a>
+            </h3>
+            <p class="text-xs text-[#475569] dark:text-[#94a3b8] leading-relaxed">
+              Formulating structured voting protocols across specialized reviewer agents to identify logic errors and test gaps in Python code before human merge.
+            </p>
+          </div>
+          <a href="pod.html?id=pod-03" class="text-xs font-mono text-blue-600 dark:text-blue-400 hover:underline flex-shrink-0 flex items-center gap-1">
+            <span>Explore Pod 03</span>
+            <span>→</span>
+          </a>
+        </article>
+
+        <!-- Story Row 2 -->
+        <article class="py-6 research-story-row group flex flex-col md:flex-row md:items-center justify-between gap-4">
+          <div class="space-y-1.5 max-w-3xl">
+            <div class="flex items-center gap-3 text-xs font-mono">
+              <span class="text-blue-600 dark:text-blue-400 font-medium">POD 01 // INDIC NLP</span>
+              <span class="text-[#cbd5e1] dark:text-[#334155]">•</span>
+              <span class="text-[#64748b] dark:text-[#64748b]">Validating · Cycle 2026.1</span>
+            </div>
+            <h3 class="text-base font-medium text-[#091124] dark:text-white group-hover:text-blue-600 dark:group-hover:text-blue-400 transition">
+              <a href="pod.html?id=pod-01">
+                Cross-Lingual Pseudo-Labeling with Calibrated Confidence Bounds
+              </a>
+            </h3>
+            <p class="text-xs text-[#475569] dark:text-[#94a3b8] leading-relaxed">
+              Quantifying label noise transfer when bootstrapping regional Kannada sentiment classifiers from English instruction-tuned models.
+            </p>
+          </div>
+          <a href="pod.html?id=pod-01" class="text-xs font-mono text-blue-600 dark:text-blue-400 hover:underline flex-shrink-0 flex items-center gap-1">
+            <span>Explore Pod 01</span>
+            <span>→</span>
+          </a>
+        </article>
+
+        <!-- Story Row 3 -->
+        <article class="py-6 research-story-row group flex flex-col md:flex-row md:items-center justify-between gap-4">
+          <div class="space-y-1.5 max-w-3xl">
+            <div class="flex items-center gap-3 text-xs font-mono">
+              <span class="text-blue-600 dark:text-blue-400 font-medium">POD 04 // BIO-SIGNALS</span>
+              <span class="text-[#cbd5e1] dark:text-[#334155]">•</span>
+              <span class="text-[#64748b] dark:text-[#64748b]">Active Sprints · Cycle 2026.1</span>
+            </div>
+            <h3 class="text-base font-medium text-[#091124] dark:text-white group-hover:text-blue-600 dark:group-hover:text-blue-400 transition">
+              <a href="pod.html?id=pod-04">
+                Lightweight 1D-CNN for Real-Time Single-Lead ECG Anomaly Detection
+              </a>
+            </h3>
+            <p class="text-xs text-[#475569] dark:text-[#94a3b8] leading-relaxed">
+              Constructing an ultra-compact convolutional classifier for continuous beat classification on PhysioNet MIT-BIH Arrhythmia databases.
+            </p>
+          </div>
+          <a href="pod.html?id=pod-04" class="text-xs font-mono text-blue-600 dark:text-blue-400 hover:underline flex-shrink-0 flex items-center gap-1">
+            <span>Explore Pod 04</span>
+            <span>→</span>
+          </a>
+        </article>
+      </div>
+    </section>
+
+    <!-- 7. PODS OVERVIEW GRID (REFINED EDITORIAL GRID) -->
+    <section class="py-24 border-b border-[#e2e8f0] dark:border-[#1e2027]">
+      <div class="flex flex-col md:flex-row md:items-end justify-between mb-12 gap-4">
+        <div>
+          <div class="section-label mb-2">
+            <span>RESEARCH PODS</span>
+          </div>
+          <h2 class="text-2xl sm:text-3xl font-medium tracking-tight text-[#091124] dark:text-white">
+            Six Autonomous Research Squads
+          </h2>
+        </div>
+        <a href="pods.html" class="inline-flex items-center gap-1.5 text-xs font-mono text-blue-600 dark:text-blue-400 hover:underline">
+          <span>View All Pods & Milestones</span>
+          <span>→</span>
+        </a>
+      </div>
+
+      <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+        <!-- Pod 01 -->
+        <article class="p-7 rounded-xl bg-white dark:bg-[#0f172a] border border-[#e2e8f0] dark:border-[#1e293b] pod-editorial-card flex flex-col justify-between shadow-sm">
+          <div>
+            <div class="flex items-center justify-between mb-4">
+              <span class="text-2xl font-light text-slate-300 dark:text-slate-700 font-mono select-none">01</span>
+              <span class="text-[10px] font-mono text-blue-600 dark:text-blue-400 bg-blue-50 dark:bg-blue-950/40 border border-blue-200 dark:border-blue-900/50 px-2 py-0.5 rounded">INDIC NLP</span>
+            </div>
+            <h3 class="text-base font-medium text-[#091124] dark:text-white mb-2">
+              <a href="pod.html?id=pod-01" class="hover:underline">Regional NLP & Indic LLMs</a>
+            </h3>
+            <p class="text-xs text-[#475569] dark:text-[#94a3b8] leading-relaxed mb-6 font-normal">
+              Kannada text classification, Indic language models, pseudo-labeling, LoRA fine-tuning, and multilingual NLP.
+            </p>
+          </div>
+          <div class="pt-4 border-t border-[#f1f5f9] dark:border-[#1e293b] flex items-center justify-between text-xs font-mono">
+            <span class="text-[11px] text-[#64748b] dark:text-[#64748b]">LoRA • IndicBERT</span>
+            <a href="pod.html?id=pod-01" class="text-blue-600 dark:text-blue-400 hover:underline">View Pod →</a>
+          </div>
+        </article>
+
+        <!-- Pod 02 -->
+        <article class="p-7 rounded-xl bg-white dark:bg-[#0f172a] border border-[#e2e8f0] dark:border-[#1e293b] pod-editorial-card flex flex-col justify-between shadow-sm">
+          <div>
+            <div class="flex items-center justify-between mb-4">
+              <span class="text-2xl font-light text-slate-300 dark:text-slate-700 font-mono select-none">02</span>
+              <span class="text-[10px] font-mono text-blue-600 dark:text-blue-400 bg-blue-50 dark:bg-blue-950/40 border border-blue-200 dark:border-blue-900/50 px-2 py-0.5 rounded">EDGE VISION</span>
+            </div>
+            <h3 class="text-base font-medium text-[#091124] dark:text-white mb-2">
+              <a href="pod.html?id=pod-02" class="hover:underline">Edge AI & Vision Systems</a>
+            </h3>
+            <p class="text-xs text-[#475569] dark:text-[#94a3b8] leading-relaxed mb-6 font-normal">
+              Real-time vision systems, traffic intelligence, YOLO models, TensorRT optimization, and edge deployment.
+            </p>
+          </div>
+          <div class="pt-4 border-t border-[#f1f5f9] dark:border-[#1e293b] flex items-center justify-between text-xs font-mono">
+            <span class="text-[11px] text-[#64748b] dark:text-[#64748b]">TensorRT • YOLOv8</span>
+            <a href="pod.html?id=pod-02" class="text-blue-600 dark:text-blue-400 hover:underline">View Pod →</a>
+          </div>
+        </article>
+
+        <!-- Pod 03 -->
+        <article class="p-7 rounded-xl bg-white dark:bg-[#0f172a] border border-[#e2e8f0] dark:border-[#1e293b] pod-editorial-card flex flex-col justify-between shadow-sm">
+          <div>
+            <div class="flex items-center justify-between mb-4">
+              <span class="text-2xl font-light text-slate-300 dark:text-slate-700 font-mono select-none">03</span>
+              <span class="text-[10px] font-mono text-blue-600 dark:text-blue-400 bg-blue-50 dark:bg-blue-950/40 border border-blue-200 dark:border-blue-900/50 px-2 py-0.5 rounded">AGENTIC LOOPS</span>
+            </div>
+            <h3 class="text-base font-medium text-[#091124] dark:text-white mb-2">
+              <a href="pod.html?id=pod-03" class="hover:underline">Agentic AI & Autonomous Loops</a>
+            </h3>
+            <p class="text-xs text-[#475569] dark:text-[#94a3b8] leading-relaxed mb-6 font-normal">
+              Multi-agent reasoning, LangGraph workflows, grounded RAG, orchestration, and autonomous AI systems.
+            </p>
+          </div>
+          <div class="pt-4 border-t border-[#f1f5f9] dark:border-[#1e293b] flex items-center justify-between text-xs font-mono">
+            <span class="text-[11px] text-[#64748b] dark:text-[#64748b]">LangGraph • RAG</span>
+            <a href="pod.html?id=pod-03" class="text-blue-600 dark:text-blue-400 hover:underline">View Pod →</a>
+          </div>
+        </article>
+
+        <!-- Pod 04 -->
+        <article class="p-7 rounded-xl bg-white dark:bg-[#0f172a] border border-[#e2e8f0] dark:border-[#1e293b] pod-editorial-card flex flex-col justify-between shadow-sm">
+          <div>
+            <div class="flex items-center justify-between mb-4">
+              <span class="text-2xl font-light text-slate-300 dark:text-slate-700 font-mono select-none">04</span>
+              <span class="text-[10px] font-mono text-blue-600 dark:text-blue-400 bg-blue-50 dark:bg-blue-950/40 border border-blue-200 dark:border-blue-900/50 px-2 py-0.5 rounded">BIO-SIGNALS</span>
+            </div>
+            <h3 class="text-base font-medium text-[#091124] dark:text-white mb-2">
+              <a href="pod.html?id=pod-04" class="hover:underline">Healthcare & Bio-Signals</a>
+            </h3>
+            <p class="text-xs text-[#475569] dark:text-[#94a3b8] leading-relaxed mb-6 font-normal">
+              ECG/EEG analysis, time-series anomaly detection, bio-signal intelligence, and healthcare AI research.
+            </p>
+          </div>
+          <div class="pt-4 border-t border-[#f1f5f9] dark:border-[#1e293b] flex items-center justify-between text-xs font-mono">
+            <span class="text-[11px] text-[#64748b] dark:text-[#64748b]">PhysioNet • 1D-CNN</span>
+            <a href="pod.html?id=pod-04" class="text-blue-600 dark:text-blue-400 hover:underline">View Pod →</a>
+          </div>
+        </article>
+
+        <!-- Pod 05 -->
+        <article class="p-7 rounded-xl bg-white dark:bg-[#0f172a] border border-[#e2e8f0] dark:border-[#1e293b] pod-editorial-card flex flex-col justify-between shadow-sm">
+          <div>
+            <div class="flex items-center justify-between mb-4">
+              <span class="text-2xl font-light text-slate-300 dark:text-slate-700 font-mono select-none">05</span>
+              <span class="text-[10px] font-mono text-blue-600 dark:text-blue-400 bg-blue-50 dark:bg-blue-950/40 border border-blue-200 dark:border-blue-900/50 px-2 py-0.5 rounded">SAFETY & ETHICS</span>
+            </div>
+            <h3 class="text-base font-medium text-[#091124] dark:text-white mb-2">
+              <a href="pod.html?id=pod-05" class="hover:underline">Secure AI & Model Ethics</a>
+            </h3>
+            <p class="text-xs text-[#475569] dark:text-[#94a3b8] leading-relaxed mb-6 font-normal">
+              Adversarial robustness, fairness, explainability, jailbreak evaluation, AI safety, and responsible AI.
+            </p>
+          </div>
+          <div class="pt-4 border-t border-[#f1f5f9] dark:border-[#1e293b] flex items-center justify-between text-xs font-mono">
+            <span class="text-[11px] text-[#64748b] dark:text-[#64748b]">Garak • ATLAS</span>
+            <a href="pod.html?id=pod-05" class="text-blue-600 dark:text-blue-400 hover:underline">View Pod →</a>
+          </div>
+        </article>
+
+        <!-- Pod 06 -->
+        <article class="p-7 rounded-xl bg-white dark:bg-[#0f172a] border border-[#e2e8f0] dark:border-[#1e293b] pod-editorial-card flex flex-col justify-between shadow-sm">
+          <div>
+            <div class="flex items-center justify-between mb-4">
+              <span class="text-2xl font-light text-slate-300 dark:text-slate-700 font-mono select-none">06</span>
+              <span class="text-[10px] font-mono text-blue-600 dark:text-blue-400 bg-blue-50 dark:bg-blue-950/40 border border-blue-200 dark:border-blue-900/50 px-2 py-0.5 rounded">HPC & MLOPs</span>
+            </div>
+            <h3 class="text-base font-medium text-[#091124] dark:text-white mb-2">
+              <a href="pod.html?id=pod-06" class="hover:underline">Systems, HPC & MLOps</a>
+            </h3>
+            <p class="text-xs text-[#475569] dark:text-[#94a3b8] leading-relaxed mb-6 font-normal">
+              GPU infrastructure, Docker, CI/CD, testbeds, reproducibility, model deployment, and experiment tracking.
+            </p>
+          </div>
+          <div class="pt-4 border-t border-[#f1f5f9] dark:border-[#1e293b] flex items-center justify-between text-xs font-mono">
+            <span class="text-[11px] text-[#64748b] dark:text-[#64748b]">Docker • MLflow</span>
+            <a href="pod.html?id=pod-06" class="text-blue-600 dark:text-blue-400 hover:underline">View Pod →</a>
+          </div>
+        </article>
+      </div>
+    </section>
+
+    <!-- 8. RESEARCH CULTURE IMAGE / MOTTO BAND -->
+    <section class="py-20 border-b border-[#e2e8f0] dark:border-[#1e293b]">
+      <div class="p-10 sm:p-16 rounded-xl bg-[#091124] dark:bg-[#030712] text-white text-center relative overflow-hidden shadow-sm">
+        <!-- Background subtle tech grid lines -->
+        <div class="absolute inset-0 bg-grid-pattern opacity-10 pointer-events-none"></div>
+
+        <div class="relative z-10 max-w-2xl mx-auto space-y-4">
+          <div class="text-[11px] font-mono uppercase text-blue-400 tracking-widest">
+            RESEARCH CULTURE DIRECTIVE
+          </div>
+
+          <h2 class="text-3xl sm:text-4xl lg:text-5xl font-light tracking-tight text-white leading-tight">
+            “Build. Measure. Review. Reproduce.”
+          </h2>
+
+          <p class="text-xs sm:text-sm text-[#94a3b8] font-mono leading-relaxed pt-2">
+            Institutional software engineering standards enforcing deterministic random seeds, peer-reviewed pull requests, and verified open artifact lineage across every student squad.
+          </p>
+
+          <div class="pt-4">
+            <a href="reproducibility.html" class="inline-flex items-center gap-2 text-xs font-mono text-white underline hover:text-blue-400 transition">
+              <span>Read AIAC 5 Engineering Principles</span>
+              <span>→</span>
+            </a>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- 9. NEWS AND EVENTS SECTION (EDITORIAL LIST FORMAT, NO CARDS) -->
+    <section class="py-24 border-b border-[#e2e8f0] dark:border-[#1e293b]">
+      <div class="flex flex-col md:flex-row md:items-end justify-between mb-12 gap-4">
+        <div>
+          <div class="section-label mb-2">
+            <span>LABORATORY COLLOQUIA & SPRINT LOG</span>
+          </div>
+          <h2 class="text-2xl sm:text-3xl font-medium tracking-tight text-[#091124] dark:text-white">
+            Recent Lab Updates
+          </h2>
+        </div>
+        <a href="updates.html" class="inline-flex items-center gap-1.5 text-xs font-mono text-blue-600 dark:text-blue-400 hover:underline">
+          <span>Complete Archive</span>
+          <span>→</span>
+        </a>
+      </div>
+
+      <div class="border-t border-[#e2e8f0] dark:border-[#1e293b] divide-y divide-[#e2e8f0] dark:divide-[#1e293b]">
+        <!-- News item 1 -->
+        <article class="py-6 flex flex-col md:flex-row md:items-center justify-between gap-4 group">
+          <div class="flex items-start gap-6">
+            <div class="text-xs font-mono text-[#64748b] dark:text-[#64748b] w-20 flex-shrink-0 pt-0.5">
+              OCT 08
+            </div>
+            <div class="space-y-1">
+              <div class="text-[10px] font-mono uppercase text-blue-600 dark:text-blue-400 font-semibold">RESEARCH UPDATE</div>
+              <h3 class="text-sm font-medium text-[#091124] dark:text-white group-hover:text-blue-600 dark:group-hover:text-blue-400 transition">
+                Pod 02 completed baseline vision benchmark setup on physical Jetson boards.
+              </h3>
+            </div>
+          </div>
+          <span class="text-[11px] font-mono text-[#94a3b8] self-start md:self-auto">Pod 02 // Edge AI</span>
+        </article>
+
+        <!-- News item 2 -->
+        <article class="py-6 flex flex-col md:flex-row md:items-center justify-between gap-4 group">
+          <div class="flex items-start gap-6">
+            <div class="text-xs font-mono text-[#64748b] dark:text-[#64748b] w-20 flex-shrink-0 pt-0.5">
+              OCT 05
+            </div>
+            <div class="space-y-1">
+              <div class="text-[10px] font-mono uppercase text-emerald-600 dark:text-emerald-400 font-semibold">ANNOUNCEMENT</div>
+              <h3 class="text-sm font-medium text-[#091124] dark:text-white group-hover:text-blue-600 dark:group-hover:text-blue-400 transition">
+                AIAC H1 2026–27 cohort began with 30 student researchers across active squads.
+              </h3>
+            </div>
+          </div>
+          <span class="text-[11px] font-mono text-[#94a3b8] self-start md:self-auto">Cohort 2026</span>
+        </article>
+
+        <!-- News item 3 -->
+        <article class="py-6 flex flex-col md:flex-row md:items-center justify-between gap-4 group">
+          <div class="flex items-start gap-6">
+            <div class="text-xs font-mono text-[#64748b] dark:text-[#64748b] w-20 flex-shrink-0 pt-0.5">
+              SEP 28
+            </div>
+            <div class="space-y-1">
+              <div class="text-[10px] font-mono uppercase text-blue-600 dark:text-blue-400 font-semibold">WORKSHOP</div>
+              <h3 class="text-sm font-medium text-[#091124] dark:text-white group-hover:text-blue-600 dark:group-hover:text-blue-400 transition">
+                Technical seminar on deterministic tool-calling and state machines in LangGraph.
+              </h3>
+            </div>
+          </div>
+          <span class="text-[11px] font-mono text-[#94a3b8] self-start md:self-auto">Pod 03 // Agents</span>
+        </article>
+
+        <!-- News item 4 -->
+        <article class="py-6 flex flex-col md:flex-row md:items-center justify-between gap-4 group">
+          <div class="flex items-start gap-6">
+            <div class="text-xs font-mono text-[#64748b] dark:text-[#64748b] w-20 flex-shrink-0 pt-0.5">
+              SEP 15
+            </div>
+            <div class="space-y-1">
+              <div class="text-[10px] font-mono uppercase text-[#64748b] font-semibold">GOVERNANCE</div>
+              <h3 class="text-sm font-medium text-[#091124] dark:text-white group-hover:text-blue-600 dark:group-hover:text-blue-400 transition">
+                Ratified four cross-pod student councils (Systems, ML Rigor, Ethics, and Documentation).
+              </h3>
+            </div>
+          </div>
+          <span class="text-[11px] font-mono text-[#94a3b8] self-start md:self-auto">All Councils</span>
+        </article>
+      </div>
+    </section>
+
+    <!-- Student Intake CTA -->
+    <section id="intake" class="py-24">
+      <div class="p-8 sm:p-14 rounded-xl bg-white dark:bg-[#0f172a] border border-[#e2e8f0] dark:border-[#1e293b] text-center relative overflow-hidden shadow-sm">
+        <div class="text-xs font-mono text-[#64748b] dark:text-[#94a3b8] uppercase tracking-widest mb-4">STUDENT INTAKE // 2026 CADRE</div>
+        <h2 class="text-3xl sm:text-4xl font-medium tracking-tight text-[#091124] dark:text-white mb-6 max-w-xl mx-auto">
+          Start building production-grade research systems.
+        </h2>
+        <p class="text-sm text-[#475569] dark:text-[#94a3b8] max-w-xl mx-auto mb-10 leading-relaxed font-normal">
+          Induction is open to high-aptitude undergraduate engineers. Admission into active squads is determined entirely through the 48-hour builder evaluation.
+        </p>
+        
+        <div class="inline-flex flex-col sm:flex-row gap-4 items-center">
+          <a href="https://forms.google.com" target="_blank" rel="noopener noreferrer" class="px-7 py-3 rounded-md bg-[#091124] text-white hover:bg-[#1e293b] dark:bg-white dark:text-black font-semibold text-xs font-mono dark:hover:bg-[#e2e8f0] transition flex items-center gap-2 shadow-sm">
+            <span>START APPLICATION</span>
+            <span>↗</span>
+          </a>
+          <a href="intake.html" class="px-7 py-3 rounded-md bg-transparent text-[#091124] dark:text-white border border-[#cbd5e1] dark:border-[#334155] hover:border-blue-500 text-xs font-mono transition">
+            <span>View Intake Criteria</span>
+          </a>
+        </div>
+        <div class="mt-6 text-[11px] font-mono text-[#64748b] dark:text-[#64748b]">
+          Prerequisites: Basic Python/C • Git Baseline • 8-10 Hours/Week Commitment
+        </div>
+      </div>
+    </section>
+
+  </main>
+
+  <!-- 11. STRONGER INSTITUTIONAL FOOTER -->
+  <footer class="border-t border-[#e2e8f0] dark:border-[#1e293b] bg-white dark:bg-[#050811] py-16 text-xs text-[#64748b] dark:text-[#64748b] font-mono transition-colors">
+    <div class="max-w-6xl mx-auto px-6">
+      <div class="grid grid-cols-1 md:grid-cols-4 gap-10 pb-12 border-b border-[#e2e8f0] dark:border-[#1e293b]">
+        <!-- Col 1: Identity & Statement -->
+        <div class="md:col-span-2 space-y-3">
+          <div class="flex items-center gap-2 text-sm font-semibold text-[#091124] dark:text-white">
+            <span class="w-3.5 h-3.5 bg-[#091124] dark:bg-white text-white dark:text-black text-[9px] flex items-center justify-center rounded-sm">▲</span>
+            <span>AIAC RESEARCH CENTRE</span>
+          </div>
+          <p class="text-xs text-[#475569] dark:text-[#94a3b8] leading-relaxed max-w-md font-sans">
+            Advanced Intelligence & Applied Computing is a student-led academic research centre bridging theoretical algorithm formulation with production-grade distributed execution, low-latency edge inference, bio-signals, and localized Indic NLP.
+          </p>
+          <div class="text-[11px] text-[#64748b] pt-1">
+            Department of Computer Science & Engineering · Division 2
+          </div>
+        </div>
+
+        <!-- Col 2: Navigation Links -->
+        <div class="space-y-2.5">
+          <div class="text-xs uppercase text-[#091124] dark:text-white font-semibold tracking-wider">Navigation</div>
+          <ul class="space-y-1.5 text-xs">
+            <li><a href="index.html" class="hover:text-blue-600 dark:hover:text-white transition">Overview</a></li>
+            <li><a href="research.html" class="hover:text-blue-600 dark:hover:text-white transition">Research Themes</a></li>
+            <li><a href="pods.html" class="hover:text-blue-600 dark:hover:text-white transition">Research Pods</a></li>
+            <li><a href="projects.html" class="hover:text-blue-600 dark:hover:text-white transition">Projects Pipeline</a></li>
+            <li><a href="outputs.html" class="hover:text-blue-600 dark:hover:text-white transition">Research Outputs</a></li>
+          </ul>
+        </div>
+
+        <!-- Col 3: Standards & Lineage -->
+        <div class="space-y-2.5">
+          <div class="text-xs uppercase text-[#091124] dark:text-white font-semibold tracking-wider">Open Science</div>
+          <ul class="space-y-1.5 text-xs">
+            <li><a href="reproducibility.html" class="hover:text-blue-600 dark:hover:text-white transition">Code & Reproducibility</a></li>
+            <li><a href="people.html" class="hover:text-blue-600 dark:hover:text-white transition">Governance Councils</a></li>
+            <li><a href="updates.html" class="hover:text-blue-600 dark:hover:text-white transition">Updates & Colloquia</a></li>
+            <li><a href="https://github.com/aiac-lab" target="_blank" rel="noopener noreferrer" class="hover:text-blue-600 dark:hover:text-white transition">GitHub Organization ↗</a></li>
+            <li><a href="intake.html" class="hover:text-blue-600 dark:hover:text-white transition">Student Intake Portal</a></li>
+          </ul>
+        </div>
+      </div>
+
+      <!-- Footer Bottom Bar -->
+      <div class="pt-8 flex flex-col sm:flex-row items-center justify-between gap-4 text-[11px]">
+        <div>© 2026 AIAC Research Centre. All verified artifacts released under open licenses.</div>
+        <div class="flex items-center gap-6">
+          <a href="reproducibility.html" class="hover:underline">Reproducibility Policy</a>
+          <a href="research.html" class="hover:underline">Research Framework</a>
+          <a href="intake.html" class="hover:underline">Admissions</a>
+        </div>
+      </div>
+    </div>
+  </footer>
+
+  <!-- Scripts -->
+  <script src="assets/js/navbar.js"></script>
+  <script src="assets/js/interactions.js"></script>
+</body>
+</html>

@@ -1,0 +1,352 @@
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Updates & Events — AIAC Research Centre</title>
+  <!-- Tailwind CSS CDN -->
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script>
+    tailwind.config = {
+      darkMode: 'class',
+      theme: {
+        extend: {
+          colors: {
+            brand: {
+              50: '#eff6ff',
+              500: '#3b82f6',
+              600: '#2563eb',
+              700: '#1d4ed8',
+            }
+          }
+        }
+      }
+    };
+  </script>
+  <!-- Google Fonts: Geist & Geist Mono -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Geist:wght@300;400;500;600;700&family=Geist+Mono:wght@400;500&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="assets/css/site.css">
+  <script src="assets/js/theme.js"></script>
+</head>
+<body class="bg-[#fafafb] text-[#4b5563] dark:bg-[#08090c] dark:text-[#9ca3af] antialiased selection:bg-zinc-900 selection:text-white dark:selection:bg-white dark:selection:text-black min-h-screen flex flex-col justify-between">
+
+  <!-- Background Grids & Ambient Lighting -->
+  <div class="fixed inset-0 bg-grid-pattern pointer-events-none -z-20"></div>
+  <div class="fixed inset-0 glow-radial pointer-events-none -z-10"></div>
+
+  <!-- 1. Institutional Metadata Top Strip -->
+  <div class="institutional-strip border-b border-[#e2e8f0]/40 dark:border-[#1e293b]/60 py-1.5 px-6">
+    <div class="max-w-6xl mx-auto flex flex-col sm:flex-row items-center justify-between gap-1 text-center sm:text-left">
+      <div>AIAC RESEARCH LAB · CSE DIVISION 2 · H1 2026–27</div>
+      <div class="flex items-center gap-2 text-[#64748b] dark:text-[#94a3b8]">
+        <span class="w-1.5 h-1.5 rounded-full bg-emerald-500 animate-pulse"></span>
+        <span>TRUNK SPRINT ACTIVE · CYCLE 2026.1</span>
+      </div>
+    </div>
+  </div>
+
+  <!-- Global Navigation Header -->
+  <header class="border-b border-[#e5e7eb] dark:border-[#1e2027] sticky top-0 bg-[#fafafb]/90 dark:bg-[#08090c]/90 backdrop-blur-xl z-50 transition-colors">
+    <div class="max-w-6xl mx-auto px-6 h-16 flex items-center justify-between">
+      <!-- Lab Brand Logo -->
+      <a href="index.html" class="flex items-center gap-3 group focus:outline-none focus-visible:ring-2 focus-visible:ring-blue-500 rounded p-1">
+        <div class="w-5 h-5 bg-[#090a0f] dark:bg-white rounded-sm flex items-center justify-center text-white dark:text-black font-bold text-xs tracking-tighter">
+          ▲
+        </div>
+        <span class="text-sm font-semibold tracking-tight text-[#090a0f] dark:text-white group-hover:text-blue-600 dark:group-hover:text-blue-400 transition">
+          AIAC <span class="text-[#9ca3af] dark:text-[#555b68] font-normal font-mono text-xs">/ LAB</span>
+        </span>
+      </a>
+
+      <!-- Desktop Navigation Links -->
+      <nav class="hidden md:flex items-center space-x-6 text-xs font-medium text-[#6b7280] dark:text-[#808695]">
+        <a href="index.html" class="hover:text-[#090a0f] dark:hover:text-white transition py-1">Overview</a>
+        <a href="research.html" class="hover:text-[#090a0f] dark:hover:text-white transition py-1">Research</a>
+        <a href="pods.html" class="hover:text-[#090a0f] dark:hover:text-white transition py-1">Pods</a>
+        <a href="projects.html" class="hover:text-[#090a0f] dark:hover:text-white transition py-1">Projects</a>
+        <a href="outputs.html" class="hover:text-[#090a0f] dark:hover:text-white transition py-1">Outputs</a>
+        <a href="people.html" class="hover:text-[#090a0f] dark:hover:text-white transition py-1">People</a>
+        <a href="reproducibility.html" class="hover:text-[#090a0f] dark:hover:text-white transition py-1">Reproducibility</a>
+        <a href="updates.html" class="text-blue-600 dark:text-blue-400 font-semibold py-1 border-b-2 border-blue-600 dark:border-blue-400">Updates</a>
+      </nav>
+
+      <!-- Action Items & Theme Toggle -->
+      <div class="flex items-center gap-3">
+        <!-- Quick Search Palette Trigger -->
+        <button id="nav-search-trigger" class="hidden sm:inline-flex items-center gap-2 px-2.5 py-1.5 rounded-md border border-[#e5e7eb] dark:border-[#1e2027] bg-white dark:bg-[#111216] text-[#6b7280] dark:text-[#808695] hover:text-[#090a0f] dark:hover:text-white hover:border-[#d1d5db] dark:hover:border-[#2c303c] text-xs font-mono transition focus:outline-none focus:ring-2 focus:ring-blue-500 shadow-sm" aria-label="Search lab index">
+          <svg class="w-3.5 h-3.5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z"/>
+          </svg>
+          <span class="text-[11px] text-[#9ca3af] dark:text-[#555b68]">Search</span>
+          <kbd class="text-[10px] bg-[#f3f4f6] dark:bg-[#1e2027] text-[#4b5563] dark:text-[#9ca3af] px-1.5 py-0.5 rounded border border-[#e5e7eb] dark:border-[#2c303c]">⌘K</kbd>
+        </button>
+
+        <!-- Theme Toggle Button -->
+        <button id="theme-toggle" data-theme-toggle class="inline-flex items-center gap-1.5 px-2.5 py-1.5 rounded-md border border-[#e5e7eb] dark:border-[#1e2027] bg-white dark:bg-[#111216] text-[#4b5563] dark:text-[#9ca3af] hover:text-[#090a0f] dark:hover:text-white hover:border-[#d1d5db] dark:hover:border-[#2c303c] text-xs font-mono transition focus:outline-none focus:ring-2 focus:ring-blue-500 shadow-sm" aria-label="Toggle theme">
+          <svg class="theme-icon-dark w-3.5 h-3.5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M20.354 15.354A9 9 0 018.646 3.646 9.003 9.003 0 0012 21a9.003 9.003 0 008.354-5.646z"/>
+          </svg>
+          <svg class="theme-icon-light hidden w-3.5 h-3.5 text-amber-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 3v1m0 16v1m9-9h-1M4 9h1m15.364 6.364l-.707-.707M6.343 6.343l-.707-.707m12.728 0l-.707.707M6.343 17.657l-.707.707M16 12a4 4 0 11-8 0 4 4 0 018 0z"/>
+          </svg>
+          <span class="theme-label hidden sm:inline text-[11px]">Theme</span>
+        </button>
+
+        <!-- Intake CTA Link -->
+        <a href="intake.html" class="hidden sm:inline-flex items-center gap-1.5 text-xs font-mono font-medium text-white bg-[#090a0f] hover:bg-[#1f2937] dark:bg-[#111216] dark:hover:bg-[#17181f] border border-[#090a0f] dark:border-[#262626] px-3.5 py-1.5 rounded-md transition shadow-sm">
+          <span>Cohort 2026</span>
+          <span class="text-[#9ca3af]">→</span>
+        </a>
+
+        <!-- Mobile Menu Trigger Button -->
+        <button id="mobile-menu-button" type="button" class="md:hidden p-2 rounded-md border border-[#e5e7eb] dark:border-[#1e2027] text-[#4b5563] dark:text-[#9ca3af] hover:text-[#090a0f] dark:hover:text-white focus:outline-none focus:ring-2 focus:ring-blue-500" aria-label="Open navigation menu" aria-expanded="false">
+          <svg id="menu-open-icon" class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"/>
+          </svg>
+          <svg id="menu-close-icon" class="w-4 h-4 hidden" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"/>
+          </svg>
+        </button>
+      </div>
+    </div>
+
+    <!-- Mobile Navigation Drawer -->
+    <div id="mobile-menu" class="hidden md:hidden border-b border-[#e5e7eb] dark:border-[#1e2027] bg-[#ffffff] dark:bg-[#0c0d12] px-6 py-4 space-y-3">
+      <nav class="flex flex-col space-y-3 text-xs font-medium text-[#4b5563] dark:text-[#9ca3af]">
+        <a href="index.html" class="hover:text-blue-600 dark:hover:text-white transition py-1">Overview</a>
+        <a href="research.html" class="hover:text-blue-600 dark:hover:text-white transition py-1">Research</a>
+        <a href="pods.html" class="hover:text-blue-600 dark:hover:text-white transition py-1">Pods</a>
+        <a href="projects.html" class="hover:text-blue-600 dark:hover:text-white transition py-1">Projects</a>
+        <a href="outputs.html" class="hover:text-blue-600 dark:hover:text-white transition py-1">Outputs</a>
+        <a href="people.html" class="hover:text-blue-600 dark:hover:text-white transition py-1">People</a>
+        <a href="reproducibility.html" class="hover:text-blue-600 dark:hover:text-white transition py-1">Reproducibility</a>
+        <a href="updates.html" class="text-blue-600 dark:text-blue-400 font-semibold py-1">Updates</a>
+      </nav>
+      <div class="pt-3 border-t border-[#e5e7eb] dark:border-[#1e2027] flex items-center justify-between">
+        <a href="intake.html" class="inline-flex items-center gap-1.5 text-xs font-mono font-medium text-white bg-[#090a0f] dark:bg-[#17181f] border border-transparent dark:border-[#2c303c] px-3.5 py-1.5 rounded-md">
+          <span>Cohort 2026</span>
+          <span>→</span>
+        </a>
+      </div>
+    </div>
+  </header>
+
+  <!-- Main Content Area -->
+  <main class="max-w-5xl mx-auto px-6 py-16 sm:py-20 flex-grow w-full">
+
+    <!-- Header Section -->
+    <div class="mb-12">
+      <div class="flex items-center gap-2 text-[11px] font-mono text-[#6b7280] dark:text-[#808695] tracking-widest uppercase mb-3">
+        <span class="w-1.5 h-1.5 rounded-full bg-blue-600 dark:bg-blue-400"></span>
+        CHRONOLOGY // SPRINT LOG & COLLOQUIA
+      </div>
+      <h1 class="text-3xl sm:text-5xl font-medium tracking-tight text-[#090a0f] dark:text-white mb-4 leading-tight">
+        Updates & Events
+      </h1>
+      <p class="text-base sm:text-lg text-[#4b5563] dark:text-[#9ca3af] max-w-3xl leading-relaxed">
+        Dated log of laboratory technical workshops, research sprint milestones, council announcements, and admissions roadmaps.
+      </p>
+    </div>
+
+    <!-- Institutional Updates Telemetry Strip -->
+    <div class="grid grid-cols-2 md:grid-cols-4 gap-4 mb-12">
+      <div class="spotlight-card p-4 rounded-xl bg-white dark:bg-[#111216] border border-[#e5e7eb] dark:border-[#1e2027]">
+        <div class="text-[11px] font-mono uppercase text-[#6b7280] dark:text-[#808695] mb-1">Sprints Logged</div>
+        <div class="text-2xl font-semibold text-[#090a0f] dark:text-white flex items-baseline gap-1">
+          <span class="stat-counter" data-counter-target="14">14</span>
+          <span class="text-xs font-mono text-blue-600 dark:text-blue-400 font-normal">Sprints</span>
+        </div>
+      </div>
+      <div class="spotlight-card p-4 rounded-xl bg-white dark:bg-[#111216] border border-[#e5e7eb] dark:border-[#1e2027]">
+        <div class="text-[11px] font-mono uppercase text-[#6b7280] dark:text-[#808695] mb-1">Technical Colloquia</div>
+        <div class="text-2xl font-semibold text-[#090a0f] dark:text-white flex items-baseline gap-1">
+          <span class="stat-counter" data-counter-target="8">8</span>
+          <span class="text-xs font-mono text-emerald-600 dark:text-emerald-400 font-normal">Sessions</span>
+        </div>
+      </div>
+      <div class="spotlight-card p-4 rounded-xl bg-white dark:bg-[#111216] border border-[#e5e7eb] dark:border-[#1e2027]">
+        <div class="text-[11px] font-mono uppercase text-[#6b7280] dark:text-[#808695] mb-1">Active Cycle</div>
+        <div class="text-2xl font-semibold text-[#090a0f] dark:text-white flex items-baseline gap-1">
+          <span>2026</span><span class="text-xs font-mono text-amber-500 font-normal">.1</span>
+        </div>
+      </div>
+      <div class="spotlight-card p-4 rounded-xl bg-white dark:bg-[#111216] border border-[#e5e7eb] dark:border-[#1e2027]">
+        <div class="text-[11px] font-mono uppercase text-[#6b7280] dark:text-[#808695] mb-1">Milestone Velocity</div>
+        <div class="text-2xl font-semibold text-[#090a0f] dark:text-white flex items-baseline gap-1">
+          <span class="stat-counter" data-counter-target="100">100</span>
+          <span class="text-xs font-mono text-purple-600 dark:text-purple-400 font-normal">%</span>
+        </div>
+      </div>
+    </div>
+
+    <!-- Category Filter Controls & Counter -->
+    <div class="mb-10 flex flex-col sm:flex-row sm:items-center justify-between gap-4">
+      <div class="flex flex-wrap items-center gap-2 text-xs font-mono" id="update-filters">
+        <button data-cat="All" class="up-filter-btn px-3 py-1.5 rounded-md bg-[#090a0f] text-white dark:bg-white dark:text-black font-semibold shadow-sm transition">
+          All
+        </button>
+        <button data-cat="Workshop" class="up-filter-btn px-3 py-1.5 rounded-md bg-white dark:bg-[#111216] border border-[#e5e7eb] dark:border-[#1e2027] text-[#4b5563] dark:text-[#9ca3af] hover:text-[#090a0f] dark:hover:text-white transition">
+          Workshops
+        </button>
+        <button data-cat="Milestone" class="up-filter-btn px-3 py-1.5 rounded-md bg-white dark:bg-[#111216] border border-[#e5e7eb] dark:border-[#1e2027] text-[#4b5563] dark:text-[#9ca3af] hover:text-[#090a0f] dark:hover:text-white transition">
+          Milestones
+        </button>
+        <button data-cat="Engineering Update" class="up-filter-btn px-3 py-1.5 rounded-md bg-white dark:bg-[#111216] border border-[#e5e7eb] dark:border-[#1e2027] text-[#4b5563] dark:text-[#9ca3af] hover:text-[#090a0f] dark:hover:text-white transition">
+          Engineering
+        </button>
+        <button data-cat="Research Update" class="up-filter-btn px-3 py-1.5 rounded-md bg-white dark:bg-[#111216] border border-[#e5e7eb] dark:border-[#1e2027] text-[#4b5563] dark:text-[#9ca3af] hover:text-[#090a0f] dark:hover:text-white transition">
+          Research
+        </button>
+        <button data-cat="Announcement" class="up-filter-btn px-3 py-1.5 rounded-md bg-white dark:bg-[#111216] border border-[#e5e7eb] dark:border-[#1e2027] text-[#4b5563] dark:text-[#9ca3af] hover:text-[#090a0f] dark:hover:text-white transition">
+          Announcements
+        </button>
+        <button data-cat="Event" class="up-filter-btn px-3 py-1.5 rounded-md bg-white dark:bg-[#111216] border border-[#e5e7eb] dark:border-[#1e2027] text-[#4b5563] dark:text-[#9ca3af] hover:text-[#090a0f] dark:hover:text-white transition">
+          Events
+        </button>
+      </div>
+
+      <div class="text-[11px] font-mono text-[#6b7280] dark:text-[#808695] flex items-center gap-2">
+        <span class="w-1.5 h-1.5 rounded-full bg-emerald-500 animate-pulse"></span>
+        <span id="update-count-display">Showing 7 updates</span>
+      </div>
+    </div>
+
+    <!-- Timeline List with Elevated Editorial Cards -->
+    <div id="updates-list" class="space-y-6 relative border-l-2 border-[#e5e7eb] dark:border-[#1e2027] ml-4 pl-6 sm:pl-8">
+      <!-- Dynamically Rendered -->
+    </div>
+
+  </main>
+
+  <!-- Minimalist Academic Footer -->
+  <footer class="border-t border-[#e5e7eb] dark:border-[#1e2027] py-12 text-xs text-[#6b7280] dark:text-[#808695] font-mono">
+    <div class="max-w-6xl mx-auto px-6 flex flex-col md:flex-row justify-between items-start md:items-center gap-6">
+      <div>
+        <div class="text-[#090a0f] dark:text-white font-medium">AIAC LAB <span class="font-normal text-[#9ca3af] dark:text-[#555b68]">/ Updates & Events</span></div>
+        <div class="text-[#9ca3af] dark:text-[#555b68] mt-1">Department of Computer Science & Engineering</div>
+      </div>
+      <div class="flex flex-wrap items-center gap-6 text-[#6b7280] dark:text-[#808695]">
+        <a href="index.html" class="hover:text-[#090a0f] dark:hover:text-white transition">Overview</a>
+        <a href="research.html" class="hover:text-[#090a0f] dark:hover:text-white transition">Research</a>
+        <a href="pods.html" class="hover:text-[#090a0f] dark:hover:text-white transition">Pods</a>
+        <a href="projects.html" class="hover:text-[#090a0f] dark:hover:text-white transition">Projects</a>
+        <a href="outputs.html" class="hover:text-[#090a0f] dark:hover:text-white transition">Outputs</a>
+        <a href="reproducibility.html" class="hover:text-[#090a0f] dark:hover:text-white transition">Reproducibility</a>
+      </div>
+    </div>
+  </footer>
+
+  <!-- Scripts -->
+  <script src="assets/js/updates-data.js"></script>
+  <script src="assets/js/navbar.js"></script>
+  <script src="assets/js/interactions.js"></script>
+  <script>
+    document.addEventListener('DOMContentLoaded', () => {
+      let currentCategory = 'All';
+      const container = document.getElementById('updates-list');
+      const filterBtns = document.querySelectorAll('.up-filter-btn');
+
+      function attachSpotlights() {
+        if (window.initSpotlightEffect) {
+          window.initSpotlightEffect();
+        }
+        const cards = container.querySelectorAll('.spotlight-card');
+        cards.forEach(card => {
+          card.addEventListener('mousemove', (e) => {
+            const rect = card.getBoundingClientRect();
+            card.style.setProperty('--mouse-x', `${e.clientX - rect.left}px`);
+            card.style.setProperty('--mouse-y', `${e.clientY - rect.top}px`);
+          });
+        });
+      }
+
+      function renderUpdates() {
+        const items = getUpdatesByCategory(currentCategory);
+
+        const countDisplay = document.getElementById('update-count-display');
+        if (countDisplay) {
+          countDisplay.innerText = `Showing ${items.length} update${items.length === 1 ? '' : 's'}`;
+        }
+
+        container.innerHTML = items.map((item, idx) => `
+          <div class="relative group">
+            <!-- Node bullet with glowing pulse ring -->
+            <div class="absolute -left-[31px] sm:-left-[39px] top-6 w-3 h-3 rounded-full bg-blue-600 dark:bg-blue-400 ring-4 ring-blue-500/20 dark:ring-blue-400/20 transition group-hover:scale-125 group-hover:ring-blue-500/40"></div>
+
+            <!-- Spotlight Card Item -->
+            <div class="spotlight-card pod-editorial-card p-6 rounded-xl bg-white dark:bg-[#111216] border border-[#e5e7eb] dark:border-[#1e2027] transition hover:border-[#cbd5e1] dark:hover:border-[#2e3444] shadow-sm hover:shadow-md">
+              <div class="flex flex-wrap items-center justify-between gap-3 mb-3">
+                <div class="flex flex-wrap items-center gap-2 text-xs font-mono">
+                  <span class="text-[#64748b] dark:text-[#94a3b8] font-medium flex items-center gap-1.5">
+                    <svg class="w-3.5 h-3.5 text-[#9ca3af] dark:text-[#555b68]" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 7V3m8 4V3m-9 8h10M5 21h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v12a2 2 0 002 2z"/></svg>
+                    ${item.date}
+                  </span>
+                  <span class="text-[#d1d5db] dark:text-[#2c303c]">•</span>
+                  <span class="px-2 py-0.5 rounded text-[10px] uppercase font-semibold bg-blue-50 dark:bg-blue-950/40 text-blue-600 dark:text-blue-400 border border-blue-200 dark:border-blue-900/50">
+                    ${item.category}
+                  </span>
+                  ${item.podId ? `
+                    <span class="text-[#d1d5db] dark:text-[#2c303c]">•</span>
+                    <a href="pod.html?id=${item.podId}" class="inline-flex items-center gap-1 text-[11px] font-mono text-purple-600 dark:text-purple-400 hover:text-purple-700 dark:hover:text-purple-300 font-semibold px-2 py-0.5 rounded bg-purple-50 dark:bg-purple-950/30 border border-purple-200 dark:border-purple-900/50 transition">
+                      <span>${item.podId.toUpperCase()}</span>
+                      <span class="text-[9px]">↗</span>
+                    </a>
+                  ` : ''}
+                </div>
+
+                <div class="text-[10px] font-mono text-[#9ca3af] dark:text-[#555b68] flex items-center gap-1">
+                  <span>LOG #${String(idx + 1).padStart(2, '0')}</span>
+                </div>
+              </div>
+
+              <h2 class="text-base sm:text-lg font-semibold text-[#090a0f] dark:text-white leading-snug group-hover:text-blue-600 dark:group-hover:text-blue-400 transition mb-2">
+                ${item.title}
+              </h2>
+
+              <p class="text-xs sm:text-sm text-[#4b5563] dark:text-[#9ca3af] leading-relaxed mb-4">
+                ${item.description}
+              </p>
+
+              <div class="flex items-center justify-between pt-3 border-t border-[#f1f5f9] dark:border-[#1a1d24] text-xs font-mono text-[#64748b] dark:text-[#94a3b8]">
+                <div class="flex items-center gap-2">
+                  <span class="w-1.5 h-1.5 rounded-full bg-emerald-500"></span>
+                  <span class="text-[11px]">Trunk Verified</span>
+                </div>
+                ${item.podId ? `
+                  <a href="pod.html?id=${item.podId}" class="inline-flex items-center gap-1 text-xs text-blue-600 dark:text-blue-400 hover:underline font-medium">
+                    <span>Inspect Pod Cadre</span>
+                    <span>→</span>
+                  </a>
+                ` : `
+                  <span class="text-[11px] text-[#9ca3af] dark:text-[#555b68]">Institutional Log</span>
+                `}
+              </div>
+            </div>
+          </div>
+        `).join('');
+
+        attachSpotlights();
+      }
+
+      filterBtns.forEach(btn => {
+        btn.addEventListener('click', () => {
+          filterBtns.forEach(b => {
+            b.classList.remove('bg-[#090a0f]', 'text-white', 'dark:bg-white', 'dark:text-black', 'font-semibold', 'shadow-sm');
+            b.classList.add('bg-white', 'dark:bg-[#111216]', 'text-[#4b5563]', 'dark:text-[#9ca3af]');
+          });
+
+          btn.classList.add('bg-[#090a0f]', 'text-white', 'dark:bg-white', 'dark:text-black', 'font-semibold', 'shadow-sm');
+          btn.classList.remove('bg-white', 'dark:bg-[#111216]', 'text-[#4b5563]', 'dark:text-[#9ca3af]');
+
+          currentCategory = btn.getAttribute('data-cat');
+          renderUpdates();
+        });
+      });
+
+      renderUpdates();
+    });
+  </script>
+</body>
+</html>
