@@ -205,6 +205,9 @@
         <button data-cat="Event" class="up-filter-btn px-3 py-1.5 rounded-md bg-white dark:bg-[#111216] border border-[#e5e7eb] dark:border-[#1e2027] text-[#4b5563] dark:text-[#9ca3af] hover:text-[#090a0f] dark:hover:text-white transition">
           Events
         </button>
+        <a id="discussion-link" href="https://discord.com/app" target="aiac-discussion" rel="noopener noreferrer" class="inline-flex items-center gap-1.5 px-3 py-1.5 rounded-md bg-white dark:bg-[#111216] border border-[#e5e7eb] dark:border-[#1e2027] text-[#4b5563] dark:text-[#9ca3af] hover:text-[#5865f2] dark:hover:text-[#7289da] hover:border-[#5865f2] dark:hover:border-[#7289da] transition" aria-label="Open AIAC discussions in Discord">
+          Discussion <span aria-hidden="true">↗</span>
+        </a>
       </div>
 
       <div class="text-[11px] font-mono text-[#6b7280] dark:text-[#808695] flex items-center gap-2">
@@ -247,6 +250,16 @@
       let currentCategory = 'All';
       const container = document.getElementById('updates-list');
       const filterBtns = document.querySelectorAll('.up-filter-btn');
+      const discussionLink = document.getElementById('discussion-link');
+
+      discussionLink.addEventListener('click', (event) => {
+        event.preventDefault();
+        window.open(
+          discussionLink.href,
+          'aiac-discussion',
+          'popup,width=480,height=720,resizable=yes,scrollbars=yes'
+        );
+      });
 
       function attachSpotlights() {
         if (window.initSpotlightEffect) {
