@@ -1,0 +1,220 @@
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="theme-color" content="#f8fafc" />
+  <title>Student Application — AIAC Research Centre</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script>
+    tailwind.config = {
+      darkMode: 'class',
+      theme: {
+        extend: {
+          colors: {
+            brand: {
+              50: '#eff6ff',
+              500: '#3b82f6',
+              600: '#2563eb',
+              700: '#1d4ed8',
+            }
+          }
+        }
+      }
+    };
+  </script>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Geist:wght@300;400;500;600;700&family=Geist+Mono:wght@400;500&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="assets/css/site.css">
+  <script src="assets/js/theme.js"></script>
+</head>
+<body class="bg-[#f8fafc] text-[#334155] dark:bg-[#070b14] dark:text-[#94a3b8] antialiased selection:bg-zinc-900 selection:text-white dark:selection:bg-white dark:selection:text-black min-h-screen flex flex-col">
+  <div class="fixed inset-0 bg-grid-pattern pointer-events-none -z-20"></div>
+  <div class="fixed inset-0 glow-radial pointer-events-none -z-10"></div>
+
+  <div class="institutional-strip border-b border-[#e2e8f0]/40 dark:border-[#1e293b]/60 py-1.5 px-6">
+    <div class="max-w-6xl mx-auto flex flex-col sm:flex-row items-center justify-between gap-1 text-center sm:text-left">
+      <div>AIAC RESEARCH LAB · CSE DIVISION 2 · H1 2026–27</div>
+      <div class="flex items-center gap-2 text-[#64748b] dark:text-[#94a3b8]">
+        <span class="w-1.5 h-1.5 rounded-full bg-emerald-500 animate-pulse"></span>
+        <span>APPLICATIONS OPEN · CYCLE 2026.1</span>
+      </div>
+    </div>
+  </div>
+
+  <header class="border-b border-[#e2e8f0] dark:border-[#1e293b] sticky top-0 bg-[#f8fafc]/90 dark:bg-[#070b14]/90 backdrop-blur-xl z-50 transition-colors">
+    <div class="max-w-6xl mx-auto px-6 h-16 flex items-center justify-between">
+      <a href="index.html" class="flex items-center gap-3 group focus:outline-none focus-visible:ring-2 focus-visible:ring-blue-500 rounded p-1">
+        <span class="w-5 h-5 bg-[#091124] dark:bg-white rounded-sm flex items-center justify-center text-white dark:text-black font-bold text-xs tracking-tighter">▲</span>
+        <span class="text-sm font-semibold tracking-tight text-[#091124] dark:text-white group-hover:text-blue-600 dark:group-hover:text-blue-400 transition">
+          AIAC <span class="text-[#64748b] dark:text-[#64748b] font-normal font-mono text-xs">/ LAB</span>
+        </span>
+      </a>
+      <nav class="hidden md:flex items-center space-x-6 text-xs font-medium text-[#64748b] dark:text-[#94a3b8]">
+        <a href="index.html" class="hover:text-[#091124] dark:hover:text-white transition py-1">Overview</a>
+        <a href="research.html" class="hover:text-[#091124] dark:hover:text-white transition py-1">Research</a>
+        <a href="pods.html" class="hover:text-[#091124] dark:hover:text-white transition py-1">Pods</a>
+        <a href="projects.html" class="hover:text-[#091124] dark:hover:text-white transition py-1">Projects</a>
+        <a href="outputs.html" class="hover:text-[#091124] dark:hover:text-white transition py-1">Outputs</a>
+        <a href="people.html" class="hover:text-[#091124] dark:hover:text-white transition py-1">People</a>
+        <a href="reproducibility.html" class="hover:text-[#091124] dark:hover:text-white transition py-1">Reproducibility</a>
+        <a href="updates.html" class="hover:text-[#091124] dark:hover:text-white transition py-1">Updates</a>
+      </nav>
+      <div class="flex items-center gap-2.5">
+        <button id="theme-toggle" data-theme-toggle class="inline-flex items-center gap-1.5 px-2.5 py-1.5 rounded-md border border-[#e2e8f0] dark:border-[#1e293b] bg-white dark:bg-[#0f172a] text-[#475569] dark:text-[#94a3b8] hover:text-[#091124] dark:hover:text-white text-xs font-mono transition focus:outline-none focus:ring-2 focus:ring-blue-500 shadow-sm" aria-label="Toggle theme">
+          <svg class="theme-icon-dark w-3.5 h-3.5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M20.354 15.354A9 9 0 018.646 3.646 9.003 9.003 0 0012 21a9.003 9.003 0 008.354-5.646z"/></svg>
+          <svg class="theme-icon-light hidden w-3.5 h-3.5 text-amber-400" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 3v1m0 16v1m9-9h-1M4 9h1m15.364 6.364l-.707-.707M6.343 6.343l-.707-.707m12.728 0l-.707.707M6.343 17.657l-.707.707M16 12a4 4 0 11-8 0 4 4 0 018 0z"/></svg>
+          <span class="theme-label hidden sm:inline text-[11px]">Theme</span>
+        </button>
+        <button id="mobile-menu-button" type="button" class="md:hidden p-2 rounded-md border border-[#e2e8f0] dark:border-[#1e293b] text-[#475569] dark:text-[#94a3b8] hover:text-[#091124] dark:hover:text-white focus:outline-none focus:ring-2 focus:ring-blue-500" aria-label="Open navigation menu" aria-expanded="false">
+          <svg id="menu-open-icon" class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"/></svg>
+          <svg id="menu-close-icon" class="w-4 h-4 hidden" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"/></svg>
+        </button>
+      </div>
+    </div>
+    <div id="mobile-menu" class="hidden md:hidden border-b border-[#e2e8f0] dark:border-[#1e293b] bg-white dark:bg-[#0c1220] px-6 py-4">
+      <nav class="flex flex-col space-y-3 text-xs font-medium text-[#475569] dark:text-[#94a3b8]">
+        <a href="index.html" class="hover:text-blue-600 dark:hover:text-white transition py-1">Overview</a>
+        <a href="research.html" class="hover:text-blue-600 dark:hover:text-white transition py-1">Research</a>
+        <a href="pods.html" class="hover:text-blue-600 dark:hover:text-white transition py-1">Pods</a>
+        <a href="projects.html" class="hover:text-blue-600 dark:hover:text-white transition py-1">Projects</a>
+        <a href="outputs.html" class="hover:text-blue-600 dark:hover:text-white transition py-1">Outputs</a>
+        <a href="people.html" class="hover:text-blue-600 dark:hover:text-white transition py-1">People</a>
+        <a href="reproducibility.html" class="hover:text-blue-600 dark:hover:text-white transition py-1">Reproducibility</a>
+        <a href="updates.html" class="hover:text-blue-600 dark:hover:text-white transition py-1">Updates</a>
+      </nav>
+    </div>
+  </header>
+
+  <main class="max-w-4xl mx-auto px-6 py-12 sm:py-16 flex-grow w-full">
+    <div class="mb-9">
+      <a href="intake.html" class="inline-flex items-center gap-2 text-xs font-mono text-[#64748b] dark:text-[#94a3b8] hover:text-blue-600 dark:hover:text-blue-400 transition mb-8">
+        <span aria-hidden="true">←</span> INTAKE CRITERIA
+      </a>
+      <div class="text-[11px] font-mono text-blue-600 dark:text-blue-400 uppercase tracking-widest mb-3 flex items-center gap-2">
+        <span class="w-1.5 h-1.5 rounded-full bg-emerald-500 animate-pulse"></span>
+        STUDENT APPLICATION // 2026 COHORT
+      </div>
+      <h1 class="text-3xl sm:text-5xl font-medium tracking-tight text-[#091124] dark:text-white mb-4">Apply to AIAC Research Lab</h1>
+      <p class="text-sm sm:text-base text-[#475569] dark:text-[#94a3b8] max-w-2xl leading-relaxed">
+        Share your details and interests so the faculty directors and squad leads can understand your background and fit.
+      </p>
+    </div>
+
+    <form id="student-application-form" class="p-6 sm:p-9 rounded-xl bg-white dark:bg-[#0c1222] border border-[#e2e8f0] dark:border-[#1e293b] shadow-sm space-y-8">
+      <section aria-labelledby="student-details-heading">
+        <div class="mb-5 border-b border-[#e2e8f0] dark:border-[#1e293b] pb-3">
+          <h2 id="student-details-heading" class="text-sm font-semibold text-[#091124] dark:text-white">Student details</h2>
+          <p class="text-xs text-[#64748b] dark:text-[#94a3b8] mt-1">Fields marked with * are required.</p>
+        </div>
+        <div class="grid grid-cols-1 sm:grid-cols-2 gap-5">
+          <label class="block text-xs font-medium text-[#334155] dark:text-[#cbd5e1]">
+            Full name <span class="text-blue-600" aria-hidden="true">*</span>
+            <input name="fullName" type="text" autocomplete="name" required maxlength="120" class="mt-2 w-full rounded-md border border-[#cbd5e1] dark:border-[#334155] bg-white dark:bg-[#070b14] px-3 py-2.5 text-sm text-[#091124] dark:text-white placeholder:text-[#94a3b8] focus:outline-none focus:ring-2 focus:ring-blue-500" placeholder="Your name as on college records">
+          </label>
+          <label class="block text-xs font-medium text-[#334155] dark:text-[#cbd5e1]">
+            USN <span class="text-blue-600" aria-hidden="true">*</span>
+            <input name="usn" type="text" autocomplete="off" required maxlength="30" class="mt-2 w-full rounded-md border border-[#cbd5e1] dark:border-[#334155] bg-white dark:bg-[#070b14] px-3 py-2.5 text-sm uppercase text-[#091124] dark:text-white placeholder:text-[#94a3b8] focus:outline-none focus:ring-2 focus:ring-blue-500" placeholder="e.g. 1BM23CS001">
+          </label>
+          <label class="block text-xs font-medium text-[#334155] dark:text-[#cbd5e1]">
+            College email <span class="text-blue-600" aria-hidden="true">*</span>
+            <input name="collegeEmail" type="email" autocomplete="email" required maxlength="254" class="mt-2 w-full rounded-md border border-[#cbd5e1] dark:border-[#334155] bg-white dark:bg-[#070b14] px-3 py-2.5 text-sm text-[#091124] dark:text-white placeholder:text-[#94a3b8] focus:outline-none focus:ring-2 focus:ring-blue-500" placeholder="you@college.edu">
+          </label>
+          <label class="block text-xs font-medium text-[#334155] dark:text-[#cbd5e1]">
+            Phone number <span class="text-blue-600" aria-hidden="true">*</span>
+            <input name="phone" type="tel" autocomplete="tel" required minlength="7" maxlength="20" class="mt-2 w-full rounded-md border border-[#cbd5e1] dark:border-[#334155] bg-white dark:bg-[#070b14] px-3 py-2.5 text-sm text-[#091124] dark:text-white placeholder:text-[#94a3b8] focus:outline-none focus:ring-2 focus:ring-blue-500" placeholder="+91 98765 43210" aria-describedby="phone-help">
+            <span id="phone-help" class="block mt-1 text-[11px] font-normal text-[#64748b] dark:text-[#94a3b8]">Include country code if you are outside India.</span>
+          </label>
+          <label class="block text-xs font-medium text-[#334155] dark:text-[#cbd5e1]">
+            College / university <span class="text-blue-600" aria-hidden="true">*</span>
+            <input name="college" type="text" autocomplete="organization" required maxlength="160" class="mt-2 w-full rounded-md border border-[#cbd5e1] dark:border-[#334155] bg-white dark:bg-[#070b14] px-3 py-2.5 text-sm text-[#091124] dark:text-white placeholder:text-[#94a3b8] focus:outline-none focus:ring-2 focus:ring-blue-500" placeholder="Institution name">
+          </label>
+          <label class="block text-xs font-medium text-[#334155] dark:text-[#cbd5e1]">
+            Program / branch <span class="text-blue-600" aria-hidden="true">*</span>
+            <input name="program" type="text" required maxlength="120" class="mt-2 w-full rounded-md border border-[#cbd5e1] dark:border-[#334155] bg-white dark:bg-[#070b14] px-3 py-2.5 text-sm text-[#091124] dark:text-white placeholder:text-[#94a3b8] focus:outline-none focus:ring-2 focus:ring-blue-500" placeholder="e.g. B.E. Computer Science">
+          </label>
+          <label class="block text-xs font-medium text-[#334155] dark:text-[#cbd5e1]">
+            Current year of study <span class="text-blue-600" aria-hidden="true">*</span>
+            <select name="studyYear" required class="mt-2 w-full rounded-md border border-[#cbd5e1] dark:border-[#334155] bg-white dark:bg-[#070b14] px-3 py-2.5 text-sm text-[#091124] dark:text-white focus:outline-none focus:ring-2 focus:ring-blue-500">
+              <option value="">Select year</option>
+              <option>1st year</option>
+              <option>2nd year</option>
+              <option>3rd year</option>
+              <option>4th year</option>
+              <option>Other</option>
+            </select>
+          </label>
+        </div>
+      </section>
+
+      <section aria-labelledby="interests-heading">
+        <div class="mb-5 border-b border-[#e2e8f0] dark:border-[#1e293b] pb-3">
+          <h2 id="interests-heading" class="text-sm font-semibold text-[#091124] dark:text-white">Interests and experience</h2>
+          <p class="text-xs text-[#64748b] dark:text-[#94a3b8] mt-1">Tell us what you enjoy building and where you would like to contribute.</p>
+        </div>
+        <div class="grid grid-cols-1 sm:grid-cols-2 gap-5">
+          <label class="block text-xs font-medium text-[#334155] dark:text-[#cbd5e1]">
+            GitHub profile URL <span class="text-blue-600" aria-hidden="true">*</span>
+            <input name="githubUrl" type="url" required maxlength="2048" pattern="https://.*" class="mt-2 w-full rounded-md border border-[#cbd5e1] dark:border-[#334155] bg-white dark:bg-[#070b14] px-3 py-2.5 text-sm text-[#091124] dark:text-white placeholder:text-[#94a3b8] focus:outline-none focus:ring-2 focus:ring-blue-500" placeholder="https://github.com/username">
+          </label>
+          <label class="block text-xs font-medium text-[#334155] dark:text-[#cbd5e1]">
+            Research area / pod of interest <span class="text-blue-600" aria-hidden="true">*</span>
+            <input name="researchInterest" type="text" required maxlength="160" class="mt-2 w-full rounded-md border border-[#cbd5e1] dark:border-[#334155] bg-white dark:bg-[#070b14] px-3 py-2.5 text-sm text-[#091124] dark:text-white placeholder:text-[#94a3b8] focus:outline-none focus:ring-2 focus:ring-blue-500" placeholder="e.g. Kannada NLP, computer vision">
+          </label>
+          <label class="block text-xs font-medium text-[#334155] dark:text-[#cbd5e1] sm:col-span-2">
+            Programming skills or relevant experience <span class="text-blue-600" aria-hidden="true">*</span>
+            <textarea name="experience" required maxlength="1200" rows="3" class="mt-2 w-full rounded-md border border-[#cbd5e1] dark:border-[#334155] bg-white dark:bg-[#070b14] px-3 py-2.5 text-sm text-[#091124] dark:text-white placeholder:text-[#94a3b8] focus:outline-none focus:ring-2 focus:ring-blue-500" placeholder="Languages, tools, projects, coursework, or anything you are learning"></textarea>
+          </label>
+          <label class="block text-xs font-medium text-[#334155] dark:text-[#cbd5e1] sm:col-span-2">
+            Why would you like to join AIAC? <span class="text-blue-600" aria-hidden="true">*</span>
+            <textarea name="motivation" required minlength="20" maxlength="1500" rows="4" class="mt-2 w-full rounded-md border border-[#cbd5e1] dark:border-[#334155] bg-white dark:bg-[#070b14] px-3 py-2.5 text-sm text-[#091124] dark:text-white placeholder:text-[#94a3b8] focus:outline-none focus:ring-2 focus:ring-blue-500" placeholder="Share what you hope to learn or contribute (at least 20 characters)"></textarea>
+          </label>
+        </div>
+      </section>
+
+      <section aria-labelledby="commitment-heading">
+        <div class="mb-5 border-b border-[#e2e8f0] dark:border-[#1e293b] pb-3">
+          <h2 id="commitment-heading" class="text-sm font-semibold text-[#091124] dark:text-white">Availability</h2>
+        </div>
+        <div class="space-y-4">
+          <label class="block text-xs font-medium text-[#334155] dark:text-[#cbd5e1]">
+            Hours you can dedicate each week <span class="text-blue-600" aria-hidden="true">*</span>
+            <select name="weeklyHours" required class="mt-2 w-full sm:max-w-xs rounded-md border border-[#cbd5e1] dark:border-[#334155] bg-white dark:bg-[#070b14] px-3 py-2.5 text-sm text-[#091124] dark:text-white focus:outline-none focus:ring-2 focus:ring-blue-500">
+              <option value="">Select availability</option>
+              <option value="Under 8 hours">Under 8 hours</option>
+              <option value="8–10 hours">8–10 hours</option>
+              <option value="More than 10 hours">More than 10 hours</option>
+            </select>
+          </label>
+          <label class="flex items-start gap-3 text-xs leading-relaxed text-[#475569] dark:text-[#94a3b8]">
+            <input name="evaluationAcknowledged" type="checkbox" required class="mt-0.5 h-4 w-4 rounded border-[#cbd5e1] text-blue-600 focus:ring-blue-500">
+            <span>I understand that selection includes a 48-hour builder evaluation and a technical review call. <span class="text-blue-600" aria-hidden="true">*</span></span>
+          </label>
+        </div>
+      </section>
+
+      <div class="border-t border-[#e2e8f0] dark:border-[#1e293b] pt-6">
+        <p class="mb-5 text-[11px] leading-relaxed text-amber-800 dark:text-amber-300 bg-amber-50 dark:bg-amber-950/30 border border-amber-200 dark:border-amber-900/60 rounded-md p-3">
+          Privacy and storage: this static demo saves application details in this browser only. They are not sent to AIAC or visible on another device. Do not submit sensitive information here until a secure server-side submission service is connected.
+        </p>
+        <div id="application-status" role="status" aria-live="polite" class="hidden mb-4 rounded-md border px-4 py-3 text-sm"></div>
+        <button type="submit" class="inline-flex items-center justify-center gap-2 px-7 py-3 rounded-md bg-[#091124] text-white hover:bg-[#1e293b] dark:bg-white dark:text-black font-semibold text-xs font-mono dark:hover:bg-[#e2e8f0] transition shadow-sm focus:outline-none focus:ring-2 focus:ring-blue-500 focus:ring-offset-2 dark:focus:ring-offset-[#0c1222]">
+          <span>SAVE APPLICATION</span><span aria-hidden="true">→</span>
+        </button>
+      </div>
+    </form>
+  </main>
+
+  <footer class="border-t border-[#e2e8f0] dark:border-[#1e293b] py-8 text-xs text-[#64748b] dark:text-[#94a3b8] font-mono">
+    <div class="max-w-6xl mx-auto px-6 flex flex-col sm:flex-row justify-between gap-3">
+      <span class="text-[#091124] dark:text-white">AIAC LAB <span class="font-normal text-[#64748b]">/ Admissions Portal</span></span>
+      <a href="intake.html" class="hover:text-blue-600 dark:hover:text-blue-400 transition">View intake criteria →</a>
+    </div>
+  </footer>
+
+  <script src="assets/js/navbar.js"></script>
+  <script src="assets/js/interactions.js"></script>
+  <script src="assets/js/application-form.js"></script>
+</body>
+</html>
